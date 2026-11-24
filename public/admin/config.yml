@@ -1,12 +1,14 @@
 # Настройки админки Decap CMS — https://decapcms.org/docs/configuration-options/
 locale: ru
 
-# Вход через GitHub (репозиторий с файлами сайта)
+# Вход через GitHub (репозиторий с файлами сайта).
+# Обработчик входа — функции netlify/functions/auth.mjs и callback.mjs на самом сайте;
+# base_url подставляется автоматически (адрес сайта) в public/admin/index.html.
 backend:
   name: github
   repo: dariaboscorelli/portfolio-site
   branch: main
-  base_url: https://api.netlify.com # вход через GitHub обслуживает Netlify
+  auth_endpoint: api/auth
 
 # Для работы на своём компьютере (npm run cms + npm run dev) — правки сразу пишутся в файлы
 local_backend:

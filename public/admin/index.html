@@ -7,7 +7,15 @@
     <title>Админка — портфолио Дарьи Жук</title>
   </head>
   <body>
-    <!-- Decap CMS: настройки полей — в соседнем файле config.yml -->
+    <!-- Decap CMS: поля админки — в соседнем файле config.yml -->
+    <script>
+      window.CMS_MANUAL_INIT = true;
+    </script>
     <script src="https://unpkg.com/decap-cms@3.18.0/dist/decap-cms.js"></script>
+    <script>
+      // Вход через GitHub обслуживает сам сайт (/api/auth), поэтому адрес берём текущий —
+      // так админка продолжит работать и после подключения своего домена.
+      CMS.init({ config: { backend: { base_url: window.location.origin } } });
+    </script>
   </body>
 </html>
