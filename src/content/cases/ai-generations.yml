@@ -1,0 +1,17 @@
+slug: ai-generations
+# --- Плитка на главной ---
+title: "ИИ-генерации"
+tag: "ИИ"
+category: ai
+summary: "Обложки DOTA WTF, плакаты и 3D-объекты для эфиров"
+order: 11
+# cover: /images/uploads/имя-файла.webp
+coverHeight: 354
+
+# --- Страница кейса (заполнить) ---
+lead: ""
+client: ""
+role: ""
+tools: ""
+# hero: /images/uploads/имя-файла.webp
+sections: []

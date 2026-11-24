@@ -1,0 +1,17 @@
+slug: hot-pot
+# --- Плитка на главной ---
+title: "Hot Pot"
+tag: "БРЕНДИНГ"
+category: branding
+summary: "Айдентика ресторана: логотип, меню, афиши, фирменные носители"
+order: 2
+cover: "/images/uploads/cover-hotpot.webp"
+coverHeight: 373
+
+# --- Страница кейса (заполнить) ---
+lead: ""
+client: ""
+role: ""
+tools: ""
+# hero: /images/uploads/имя-файла.webp
+sections: []

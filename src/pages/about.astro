@@ -1,0 +1,202 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import site from '../data/site.json';
+import about from '../data/about.json';
+import { lines } from '../lib/images';
+---
+
+<Base title={`Обо мне — ${site.name}`}>
+  <Header />
+  <main class="layout">
+    <aside class="layout__aside about-aside">
+      <div class="about-aside__photo ph">
+        {about.photo && <img src={about.photo} alt={site.name} />}
+      </div>
+      <a class="btn btn--outline" href={site.resume} target="_blank" rel="noopener">Резюме PDF →</a>
+    </aside>
+
+    <div class="layout__main about-main">
+      <div class="about-intro">
+        <h1 class="about-intro__title trim-druk-110">
+          {lines(about.title).map((l, i, all) => (<>{l}{i < all.length - 1 && <br />}</>))}
+        </h1>
+        <p class="about-intro__text">{about.intro}</p>
+        <p class="about-intro__text2">{about.introSecondary}</p>
+      </div>
+
+      <div class="cards">
+        {
+          about.cards.map((c) => (
+            <div class="card">
+              <p class="card__title">
+                {lines(c.title).map((l, i, all) => (<>{l}{i < all.length - 1 && <br />}</>))}
+              </p>
+              <p class="card__text">
+                {lines(c.text).map((l, i, all) => (<>{l}{i < all.length - 1 && <br />}</>))}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="about-block">
+        <p class="about-label">{about.toolsLabel}</p>
+        <ul class="chips">
+          {about.tools.map((t) => <li class="chip">{t}</li>)}
+        </ul>
+      </div>
+
+      <div class="about-block">
+        <p class="about-label">{about.clientsLabel}</p>
+        <ClientLogos />
+      </div>
+
+      <div class="experience">
+        <p class="about-label">{about.experienceLabel}</p>
+        {
+          about.experience.map((row) => (
+            <div class="experience__row">
+              <p class="experience__period">{row.period}</p>
+              <p class="experience__company">{row.company}</p>
+              <p class="experience__role">{row.role}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .about-aside {
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .about-aside__photo {
+    position: relative;
+    width: 100%;
+    height: 440px;
+    overflow: hidden;
+  }
+  .about-aside__photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-main {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+  }
+  .about-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .about-intro__title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 76px;
+    color: var(--text);
+    text-transform: uppercase;
+  }
+  .about-intro__text {
+    font-size: 20px;
+    line-height: 1.45;
+    color: var(--text);
+  }
+  .about-intro__text2 {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+
+  .cards {
+    display: flex;
+    gap: 16px;
+  }
+  .card {
+    flex: 1 1 0;
+    min-width: 0;
+    height: 206px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--bg-card);
+    overflow: hidden;
+  }
+  .card__title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 1.1;
+    color: var(--text);
+    text-transform: uppercase;
+  }
+  .card__text {
+    font-size: 15px;
+    line-height: 1.3;
+    color: var(--muted);
+  }
+
+  .about-block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .about-label {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    display: flex;
+    align-items: center;
+    height: 44px;
+    padding: 8px 16px;
+    border: 1px solid var(--bg-card);
+    font-size: 14px;
+    line-height: 1.45;
+    color: var(--white);
+    white-space: nowrap;
+  }
+
+  .experience {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+  .experience__row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+  }
+  .experience__period {
+    flex: 0 0 220px;
+    color: var(--muted);
+  }
+  .experience__company {
+    flex: 1 1 0;
+    min-width: 0;
+    color: var(--white);
+  }
+  .experience__role {
+    flex: 0 0 259px;
+    color: var(--white);
+  }
+</style>

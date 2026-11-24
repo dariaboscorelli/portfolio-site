@@ -1,0 +1,158 @@
+# Настройки админки Decap CMS — https://decapcms.org/docs/configuration-options/
+locale: ru
+
+# Вход через GitHub (репозиторий с файлами сайта)
+backend:
+  name: github
+  repo: dariaboscorelli/portfolio-site
+  branch: main
+  base_url: https://api.netlify.com # вход через GitHub обслуживает Netlify
+
+# Для работы на своём компьютере (npm run cms + npm run dev) — правки сразу пишутся в файлы
+local_backend:
+  url: http://127.0.0.1:8081/api/v1
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+collections:
+  # ---------------- Кейсы ----------------
+  - name: cases
+    label: Кейсы
+    label_singular: кейс
+    description: Плитки на главной и страницы кейсов. Порядок на главной задаётся полем «Порядок».
+    folder: src/content/cases
+    extension: yml
+    format: yml
+    create: true
+    delete: true
+    slug: '{{fields.slug}}'
+    identifier_field: title
+    summary: '{{order}}. {{title}}'
+    sortable_fields: ['order', 'title'] # в списке выберите «Сортировать по → Порядок на главной», админка запомнит
+    editor:
+      preview: false
+    fields:
+      - { name: slug, label: 'Адрес страницы', widget: string, hint: 'Латиницей, через дефис: hot-pot → сайт.ru/work/hot-pot/. Задаётся один раз при создании кейса.', pattern: ['^[a-z0-9-]+$', 'Только маленькие латинские буквы, цифры и дефис'] }
+
+      # --- плитка на главной ---
+      - { name: title, label: 'Название', widget: string }
+      - { name: tag, label: 'Красная подпись над названием', widget: string, required: false, hint: 'Например: КИБЕРСПОРТ · ТРАНСЛЯЦИИ' }
+      - name: category
+        label: 'Направление (для фильтра)'
+        widget: select
+        options:
+          - { label: 'Киберспорт и трансляции', value: esports }
+          - { label: 'Брендинг и упаковка', value: branding }
+          - { label: 'Реклама и SMM', value: ads }
+          - { label: 'Спецпроекты и веб', value: special }
+          - { label: 'ИИ-генерации', value: ai }
+          - { label: 'Презентации', value: presentations }
+      - { name: summary, label: 'Строка под названием на плитке', widget: string, required: false }
+      - { name: order, label: 'Порядок на главной', widget: number, value_type: int, min: 1, hint: '1, 2, 3… Нечётные встают в левую колонку, чётные — в правую.' }
+      - { name: showOnHome, label: 'Показывать на главной', widget: boolean, default: true, required: false }
+      - { name: cover, label: 'Обложка плитки', widget: image, required: false, choose_url: false }
+      - { name: coverHeight, label: 'Высота обложки, px', widget: number, value_type: int, default: 400, required: false, hint: 'Высота при ширине плитки 468 px, как в Figma. От неё зависит мозаика.' }
+
+      # --- страница кейса ---
+      - { name: lead, label: 'Описание под названием (левая колонка)', widget: text, required: false }
+      - { name: client, label: 'Клиент', widget: string, required: false }
+      - { name: role, label: 'Моя роль', widget: string, required: false }
+      - { name: tools, label: 'Инструменты', widget: string, required: false }
+      - { name: hero, label: 'Главная картинка кейса (16:9)', widget: image, required: false, choose_url: false }
+      - name: sections
+        label: 'Разделы'
+        label_singular: 'раздел'
+        widget: list
+        required: false
+        summary: '{{fields.label}}'
+        hint: 'Задача → Моя роль → Результат. Номера 01, 02, 03 ставятся автоматически.'
+        fields:
+          - { name: label, label: 'Заголовок раздела', widget: string, hint: 'Например: ЗАДАЧА' }
+          - { name: text, label: 'Текст', widget: text, required: false }
+          - { name: width, label: 'Ширина текста, px (необязательно)', widget: number, value_type: int, required: false, hint: 'Если пусто — на всю ширину колонки (960 px).' }
+          - name: media
+            label: 'Картинки и подписи'
+            label_singular: 'блок'
+            widget: list
+            required: false
+            typeKey: type
+            types:
+              - name: image
+                label: 'Картинка на всю ширину'
+                summary: '{{fields.src}}'
+                fields:
+                  - { name: src, label: 'Картинка', widget: image, choose_url: false }
+                  - { name: alt, label: 'Описание картинки (для поиска и незрячих)', widget: string, required: false }
+              - name: row
+                label: 'Ряд картинок одной высоты'
+                fields:
+                  - { name: gap, label: 'Отступ между картинками, px', widget: number, value_type: int, default: 16, required: false }
+                  - name: images
+                    label: 'Картинки'
+                    label_singular: 'картинку'
+                    widget: list
+                    summary: '{{fields.src}}'
+                    fields:
+                      - { name: src, label: 'Картинка', widget: image, choose_url: false }
+                      - { name: alt, label: 'Описание картинки', widget: string, required: false }
+              - name: caption
+                label: 'Тёмная плашка с подписью'
+                summary: '{{fields.text}}'
+                fields:
+                  - { name: text, label: 'Текст', widget: string }
+
+  # ---------------- Настройки ----------------
+  - name: settings
+    label: Настройки сайта
+    editor:
+      preview: false
+    files:
+      - name: site
+        label: Контакты и главная
+        file: src/data/site.json
+        fields:
+          - { name: name, label: 'Имя', widget: string }
+          - { name: year, label: 'Год (в подвале)', widget: string }
+          - { name: email, label: 'Почта', widget: string }
+          - { name: telegram, label: 'Telegram (без @)', widget: string }
+          - { name: behance, label: 'Ссылка на Behance', widget: string, required: false }
+          - { name: resume, label: 'Резюме (PDF)', widget: file, choose_url: false }
+          - { name: resumeNote, label: 'Подпись к резюме на странице «Контакты»', widget: string }
+          - name: home
+            label: 'Главная — левая колонка'
+            widget: object
+            fields:
+              - { name: eyebrow, label: 'Надпись сверху', widget: string }
+              - { name: title, label: 'Заголовок', widget: string }
+              - { name: description, label: 'Описание', widget: text }
+
+      - name: about
+        label: Страница «Обо мне»
+        file: src/data/about.json
+        fields:
+          - { name: photo, label: 'Фото', widget: image, choose_url: false }
+          - { name: title, label: 'Заголовок', widget: text, hint: 'Перенос строки — как в макете' }
+          - { name: intro, label: 'Интро (белый текст)', widget: text }
+          - { name: introSecondary, label: 'Интро (серый текст)', widget: text }
+          - name: cards
+            label: 'Карточки «Что я делаю»'
+            label_singular: 'карточку'
+            widget: list
+            summary: '{{fields.title}}'
+            fields:
+              - { name: title, label: 'Заголовок', widget: text }
+              - { name: text, label: 'Текст', widget: text }
+          - { name: toolsLabel, label: 'Заголовок блока программ', widget: string }
+          - { name: tools, label: 'Программы и инструменты', widget: list, field: { name: tool, label: 'Программа', widget: string } }
+          - { name: clientsLabel, label: 'Заголовок блока клиентов', widget: string }
+          - { name: experienceLabel, label: 'Заголовок блока опыта', widget: string }
+          - name: experience
+            label: 'Опыт'
+            label_singular: 'строку'
+            widget: list
+            summary: '{{fields.period}} — {{fields.company}}'
+            fields:
+              - { name: period, label: 'Период', widget: string }
+              - { name: company, label: 'Компания', widget: string }
+              - { name: role, label: 'Должность', widget: string }

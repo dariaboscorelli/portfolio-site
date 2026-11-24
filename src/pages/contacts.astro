@@ -1,0 +1,107 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import site from '../data/site.json';
+---
+
+<Base title={`Контакты — ${site.name}`}>
+  <div class="contacts-page">
+    <Header />
+    <main class="contacts">
+      <h1 class="contacts__title trim-roboto-100">Давайте работать <br />вместе</h1>
+      <div class="contacts__list">
+        <div class="contacts__row">
+          <p class="contacts__label">ПОЧТА</p>
+          <p class="contacts__value">{site.email}</p>
+          <button type="button" class="contacts__action" data-copy={site.email}>
+            <span class="br">[</span> Скопировать <span class="br">]</span>
+          </button>
+        </div>
+        <div class="contacts__row">
+          <p class="contacts__label">TELEGRAM</p>
+          <p class="contacts__value">@{site.telegram}</p>
+          <a class="contacts__action" href={`https://t.me/${site.telegram}`} target="_blank" rel="noopener">
+            <span class="br">[</span> Открыть ↗ <span class="br">]</span>
+          </a>
+        </div>
+        <div class="contacts__row">
+          <p class="contacts__label">РЕЗЮМЕ</p>
+          <p class="contacts__value">{site.resumeNote}</p>
+          <a class="contacts__action" href={site.resume} download>
+            <span class="br">[</span> Скачать ↓ <span class="br">]</span>
+          </a>
+        </div>
+      </div>
+    </main>
+    <p class="contacts-page__copy">© {site.year} {site.name}</p>
+  </div>
+</Base>
+
+<style>
+  .contacts-page {
+    position: relative;
+    /* делим на --zoom, т. к. на широких экранах страница увеличена целиком */
+    min-height: calc(100vh / var(--zoom, 1));
+  }
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 96px 40px 120px;
+  }
+  .contacts__title {
+    font-family: var(--font-condensed);
+    font-weight: 800;
+    font-size: 96px;
+    letter-spacing: -1.92px;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .contacts__list {
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    line-height: 1.45;
+  }
+  .contacts__row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+  }
+  .contacts__label {
+    flex: 0 0 220px;
+    color: var(--muted);
+  }
+  .contacts__value {
+    flex: 1 1 0;
+    min-width: 0;
+    color: var(--white);
+  }
+  .contacts__action {
+    flex-shrink: 0;
+    color: var(--text);
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 1.45;
+  }
+  .contacts__action .br {
+    color: var(--accent);
+  }
+  .contacts-page__copy {
+    position: absolute;
+    left: 40px;
+    bottom: 34px;
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+</style>
+
+<script>
+  for (const btn of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
+    btn.addEventListener('click', () => navigator.clipboard?.writeText(btn.dataset.copy ?? ''));
+  }
+</script>

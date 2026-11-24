@@ -1,0 +1,94 @@
+---
+// Лента логотипов клиентов — позиции и размеры перенесены из макета (группа шириной 1936 px,
+// видимая часть обрезается по ширине колонки, как в Figma).
+type Logo = { src: string; x: number; y: number; w: number; h: number; style?: string };
+const L = '/images/logos/';
+const logos: Logo[] = [
+  { src: 'logo-01.svg', x: 0, y: 27.81, w: 75.722, h: 14.374 },
+  { src: 'logo-02.png', x: 99.72, y: 0, w: 70, h: 70 },
+  { src: 'logo-03.svg', x: 193.72, y: 22.67, w: 77.404, h: 24.664 },
+  { src: 'logo-04.svg', x: 295.13, y: 27.92, w: 84.135, h: 14.157 },
+  { src: 'logo-05.png', x: 403.26, y: 21.7, w: 63.794, h: 26.605 },
+  { src: 'logo-06.svg', x: 491.2, y: 25.39, w: 80.769, h: 19.223 },
+  { src: 'logo-07.svg', x: 595.97, y: 23.78, w: 80.769, h: 22.436 },
+  { src: 'logo-08a.svg', x: 700.74, y: 4.38, w: 38.285, h: 46.392 },
+  { src: 'logo-08b.svg', x: 702.87, y: 6.43, w: 34.029, h: 41.214 },
+  {
+    src: 'logo-09.png', x: 763.03, y: 20.7, w: 100.962, h: 28.593,
+    style: 'box-shadow: 0 0.794px 17.461px 0 rgba(0,0,0,0.35)',
+  },
+  { src: 'logo-10.png', x: 887.99, y: 25.69, w: 80.769, h: 18.626 },
+  { src: 'logo-12.svg', x: 1078.5, y: 24.46, w: 75.721, h: 21.085 },
+  { src: 'logo-13.svg', x: 1178.22, y: 27.8, w: 95.914, h: 14.405 },
+  { src: 'logo-14.png', x: 1298.14, y: 4.38, w: 98.83, h: 61.25 },
+  { src: 'logo-16.svg', x: 1420.97, y: 24.97, w: 84.134, h: 20.059 },
+  { src: 'logo-15.svg', x: 1529.1, y: 28.04, w: 75.721, h: 13.919 },
+  { src: 'logo-17.svg', x: 1628.82, y: 25.54, w: 87.5, h: 18.919 },
+  { src: 'logo-19.svg', x: 1848.46, y: 28.03, w: 87.5, h: 13.949 },
+];
+const box = (x: number, y: number, w: number, h: number) =>
+  `left:${x}px;top:${y}px;width:${w}px;height:${h}px`;
+---
+
+<div class="logos" aria-label="Клиенты">
+  <div class="logos__strip">
+    {logos.map((l) => <img src={L + l.src} alt="" style={`${box(l.x, l.y, l.w, l.h)};${l.style ?? ''}`} />)}
+    <!-- AVULUS: подпись под знаком -->
+    <span class="logos__avulus" style="left:701.75px;top:54.73px">AVULUS</span>
+    <!-- знак с маской -->
+    <span
+      class="logos__masked"
+      style={`${box(992.76, 4.4, 61.75, 61.232)};-webkit-mask-image:url(${L}logo-11-mask.svg);mask-image:url(${L}logo-11-mask.svg);-webkit-mask-size:61.748px 61.25px;mask-size:61.748px 61.25px;-webkit-mask-position:-0.003px -0.023px;mask-position:-0.003px -0.023px`}
+    >
+      <img src={L + 'logo-11.svg'} alt="" />
+    </span>
+    <!-- белый логотип, вырезанный маской -->
+    <span
+      class="logos__masked logos__masked--white"
+      style={`${box(1742, 15.76, 82.452, 37.784)};-webkit-mask-image:url(${L}logo-18-mask.png);mask-image:url(${L}logo-18-mask.png);-webkit-mask-size:84.135px 18.28px;mask-size:84.135px 18.28px;-webkit-mask-position:-1.683px 10.096px;mask-position:-1.683px 10.096px`}
+    ></span>
+  </div>
+</div>
+
+<style>
+  .logos {
+    position: relative;
+    width: 100%;
+    height: 76px;
+    overflow: hidden;
+  }
+  .logos__strip {
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 1936px;
+    height: 70px;
+  }
+  .logos__strip > * {
+    position: absolute;
+    display: block;
+    max-width: none;
+  }
+  .logos__avulus {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 9.411px;
+    line-height: 1.15;
+    letter-spacing: -0.3764px;
+    color: var(--white);
+    white-space: nowrap;
+  }
+  .logos__masked {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
+  .logos__masked img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .logos__masked--white {
+    background: var(--white);
+  }
+</style>

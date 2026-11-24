@@ -1,0 +1,25 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/latin-700.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Сайт свёрстан по десктопному макету 1440 px; телефоны показывают его целиком в уменьшенном виде -->
+    <meta name="viewport" content="width=1440" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+  </head>
+  <body id="top">
+    <slot />
+  </body>
+</html>

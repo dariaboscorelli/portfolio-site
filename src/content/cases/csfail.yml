@@ -1,0 +1,17 @@
+slug: csfail
+# --- Плитка на главной ---
+title: "CSFAIL"
+tag: "РЕКЛАМА"
+category: ads
+summary: "Яркие 3D-креативы для игровой платформы"
+order: 8
+# cover: /images/uploads/имя-файла.webp
+coverHeight: 337
+
+# --- Страница кейса (заполнить) ---
+lead: ""
+client: ""
+role: ""
+tools: ""
+# hero: /images/uploads/имя-файла.webp
+sections: []

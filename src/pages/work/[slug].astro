@@ -1,0 +1,184 @@
+---
+import { getCollection, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CaseImage from '../../components/CaseImage.astro';
+import site from '../../data/site.json';
+import { lines, pad2, ratioOf } from '../../lib/images';
+
+export async function getStaticPaths() {
+  const cases = await getCollection('cases');
+  return cases.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+interface Props {
+  entry: CollectionEntry<'cases'>;
+}
+const { entry } = Astro.props;
+const d = entry.data;
+
+const passport = [
+  { label: 'КЛИЕНТ', value: d.client },
+  { label: 'МОЯ РОЛЬ', value: d.role },
+  { label: 'ИНСТРУМЕНТЫ', value: d.tools },
+].filter((f) => f.value);
+---
+
+<Base title={`${d.title} — ${site.name}`} description={d.lead || d.summary}>
+  <Header />
+  <main class="layout">
+    <aside class="layout__aside case-aside">
+      <a class="case-aside__back" href="/">← Все работы</a>
+      <h1 class="case-aside__title trim-druk-110">{d.title}</h1>
+      {d.lead && <p class="case-aside__lead">{d.lead}</p>}
+      {
+        passport.length > 0 && (
+          <dl class="passport">
+            {passport.map((f) => (
+              <div class="passport__field">
+                <dt>{f.label}</dt>
+                <dd>{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )
+      }
+    </aside>
+
+    <div class="layout__main case-main">
+      <CaseImage src={d.hero} alt={d.title} eager />
+
+      {
+        d.sections.map((s, i) => (
+          <section class="case-section">
+            <p class="case-section__label">
+              <span class="case-section__num">{pad2(i + 1)}</span> {s.label}
+            </p>
+            {s.text && (
+              <p class="case-section__text" style={s.width ? `max-width: ${s.width}px` : undefined}>
+                {lines(s.text).map((line, j, all) => (
+                  <>
+                    {line}
+                    {j < all.length - 1 && <br />}
+                  </>
+                ))}
+              </p>
+            )}
+            {s.media.map((m) =>
+              m.type === 'image' ? (
+                <CaseImage src={m.src} alt={m.alt} />
+              ) : m.type === 'row' ? (
+                <div class="case-row" style={`gap: ${m.gap}px`}>
+                  {m.images.map((img) => {
+                    const r = ratioOf(img.src) ?? 16 / 9;
+                    return (
+                      <div class="case-row__item" style={`flex: ${r} 1 0`}>
+                        <CaseImage src={img.src} alt={img.alt} />
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <p class="case-caption">{m.text}</p>
+              ),
+            )}
+          </section>
+        ))
+      }
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .case-aside {
+    gap: 28px;
+  }
+  .case-aside__back {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: normal;
+    color: var(--white);
+    text-transform: uppercase;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+  .case-aside__title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 72px;
+    color: var(--text);
+    text-transform: uppercase;
+  }
+  .case-aside__lead {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+  .passport {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    line-height: 1.45;
+  }
+  .passport__field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .passport dt {
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .passport dd {
+    margin: 0;
+    font-size: 16px;
+    color: var(--white);
+  }
+
+  .case-main {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .case-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .case-section__label {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .case-section__num {
+    color: var(--accent);
+  }
+  .case-section__text {
+    font-size: 20px;
+    line-height: 1.45;
+    color: var(--text);
+  }
+  .case-row {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .case-row__item {
+    min-width: 0;
+  }
+  .case-caption {
+    padding: 12px 20px;
+    background: var(--bg-caption);
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    color: var(--white);
+  }
+</style>

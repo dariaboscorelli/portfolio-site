@@ -1,0 +1,69 @@
+---
+import site from '../data/site.json';
+---
+
+<header class="header">
+  <div class="header__left">
+    <a class="header__name" href="/">{site.name}</a>
+    <nav class="header__nav">
+      <a href="/">Работы</a>
+      <a href="/about/">Обо мне</a>
+      <a href="/contacts/">Контакты</a>
+    </nav>
+  </div>
+  <div class="header__right">
+    <a class="header__tg" href={`https://t.me/${site.telegram}`} target="_blank" rel="noopener">
+      <img src="/icons/telegram.svg" width="24" height="24" alt="" />
+      <span>@{site.telegram}</span>
+    </a>
+    <a class="btn btn--outline" href={site.resume} target="_blank" rel="noopener">Резюме PDF →</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 40px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .header__left {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .header__name {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: normal;
+    color: var(--accent);
+  }
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: normal;
+    color: var(--text);
+  }
+  .header__right {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .header__tg {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: normal;
+    color: var(--text);
+    white-space: nowrap;
+  }
+</style>

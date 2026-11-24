@@ -1,0 +1,17 @@
+slug: more
+# --- Плитка на главной ---
+title: "«Море»"
+tag: "УПАКОВКА"
+category: branding
+summary: "Линейка упаковки рыбной продукции с графичной иллюстрацией"
+order: 4
+cover: "/images/uploads/cover-more.webp"
+coverHeight: 453
+
+# --- Страница кейса (заполнить) ---
+lead: ""
+client: ""
+role: ""
+tools: ""
+# hero: /images/uploads/имя-файла.webp
+sections: []

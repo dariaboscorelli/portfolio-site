@@ -1,0 +1,17 @@
+slug: winline-pro-league
+# --- Плитка на главной ---
+title: "Winline Pro League"
+tag: "КИБЕРСПОРТ · ТРАНСЛЯЦИИ"
+category: esports
+summary: "Полный пакет эфира: KV, оверлеи, HUD, плашки и SMM турнира"
+order: 1
+cover: "/images/uploads/cover-winline.webp"
+coverHeight: 493
+
+# --- Страница кейса (заполнить) ---
+lead: ""
+client: ""
+role: ""
+tools: ""
+# hero: /images/uploads/имя-файла.webp
+sections: []

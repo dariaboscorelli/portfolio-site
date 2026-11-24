@@ -1,0 +1,17 @@
+slug: bsb
+# --- Плитка на главной ---
+title: "BSB"
+tag: "КИБЕРСПОРТ · 2026"
+category: esports
+summary: "Графика для эфира BetBoom Streamers Battle по CS 2"
+order: 5
+# cover: /images/uploads/имя-файла.webp
+coverHeight: 314
+
+# --- Страница кейса (заполнить) ---
+lead: ""
+client: ""
+role: ""
+tools: ""
+# hero: /images/uploads/имя-файла.webp
+sections: []

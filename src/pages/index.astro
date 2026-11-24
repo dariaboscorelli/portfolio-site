@@ -1,0 +1,171 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Tile from '../components/Tile.astro';
+import site from '../data/site.json';
+import { CATEGORIES } from '../lib/categories';
+import { pad2 } from '../lib/images';
+
+const works = (await getCollection('cases'))
+  .filter((c) => c.data.showOnHome)
+  .sort((a, b) => a.data.order - b.data.order);
+
+// мозаика: 1-я, 3-я, 5-я… работа — в левой колонке, 2-я, 4-я… — в правой
+const left = works.filter((_, i) => i % 2 === 0);
+const right = works.filter((_, i) => i % 2 === 1);
+
+const filters = [
+  { id: 'all', title: 'Все работы', count: works.length },
+  ...CATEGORIES.map((c) => ({ ...c, count: works.filter((w) => w.data.category === c.id).length })),
+];
+---
+
+<Base title={`${site.name} — графический дизайнер`} description={site.home.description}>
+  <Header />
+  <main class="layout">
+    <aside class="layout__aside home-aside">
+      <p class="home-aside__eyebrow">{site.home.eyebrow}</p>
+      <h1 class="home-aside__title trim-druk-110">{site.home.title}</h1>
+      <p class="home-aside__desc">{site.home.description}</p>
+      <div class="home-aside__buttons">
+        <a class="btn btn--primary" href="/contacts/">Написать мне</a>
+        <a class="btn btn--outline" href={site.resume} target="_blank" rel="noopener">Резюме PDF</a>
+      </div>
+      <div class="home-aside__divider"></div>
+      <ul class="filter">
+        {
+          filters.map((f, i) => (
+            <li>
+              <button
+                type="button"
+                class:list={['filter__item', { 'is-active': i === 0 }]}
+                data-filter={f.id}
+                aria-pressed={i === 0 ? 'true' : 'false'}
+              >
+                <span class="filter__title">{f.title}</span>
+                <span class="filter__count">{pad2(f.count)}</span>
+              </button>
+            </li>
+          ))
+        }
+      </ul>
+    </aside>
+
+    <section class="layout__main grid" aria-label="Работы">
+      <div class="grid__col" data-col="0">{left.map((entry) => <Tile entry={entry} />)}</div>
+      <div class="grid__col" data-col="1">{right.map((entry) => <Tile entry={entry} />)}</div>
+    </section>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .home-aside {
+    gap: 28px;
+  }
+  .home-aside__eyebrow {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: normal;
+    color: var(--white);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .home-aside__title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 76px;
+    color: var(--text);
+    text-transform: uppercase;
+  }
+  .home-aside__desc {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+  .home-aside__buttons {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .home-aside__divider {
+    height: 1px;
+    width: 100%;
+    background: var(--line);
+  }
+  .filter {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .filter__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 14px;
+    line-height: normal;
+    border-radius: 8px;
+  }
+  .filter__title {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--text);
+  }
+  .filter__count {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .filter__item.is-active {
+    background: var(--accent-2);
+    border-radius: 0;
+  }
+  .filter__item.is-active .filter__title,
+  .filter__item.is-active .filter__count {
+    color: var(--dark);
+  }
+
+  .grid {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .grid__col {
+    flex: 1 1 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+</style>
+
+<script>
+  // Фильтр по направлениям. Видимые работы заново раскладываются по двум колонкам в том же порядке.
+  const buttons = Array.from(document.querySelectorAll<HTMLButtonElement>('.filter__item'));
+  const cols = Array.from(document.querySelectorAll<HTMLElement>('.grid__col'));
+  const tiles = Array.from(document.querySelectorAll<HTMLElement>('.tile')).sort(
+    (a, b) => Number(a.dataset.order) - Number(b.dataset.order),
+  );
+
+  function apply(filter: string) {
+    let n = 0;
+    for (const tile of tiles) {
+      const show = filter === 'all' || tile.dataset.category === filter;
+      tile.hidden = !show;
+      cols[show ? n++ % 2 : 0].appendChild(tile);
+    }
+    for (const b of buttons) {
+      const active = b.dataset.filter === filter;
+      b.classList.toggle('is-active', active);
+      b.setAttribute('aria-pressed', String(active));
+    }
+  }
+
+  for (const b of buttons) b.addEventListener('click', () => apply(b.dataset.filter ?? 'all'));
+</script>
