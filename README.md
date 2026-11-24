@@ -40,9 +40,14 @@ npm run build    # готовый сайт в папке dist/
 `npm run cms` и `npm run dev`, затем откройте http://localhost:4321/admin/index.html и нажмите «Войти».
 Правки сразу записываются в файлы проекта.
 
-**На опубликованном сайте:** вход через GitHub. Сайт лежит на GitHub, хостинг — Netlify
-(настройки сборки в `netlify.toml`). В `public/admin/config.yml` в строке `repo:` должен стоять
-`ваш-логин-github/имя-репозитория`. После «Опубликовать» в админке Netlify пересобирает сайт примерно за минуту.
+**На опубликованном сайте:** `адрес-сайта/admin/` → «Войти через GitHub». Файлы сайта лежат
+в репозитории GitHub `dariaboscorelli/portfolio-site`, хостинг — Netlify (настройки сборки в `netlify.toml`).
+После «Опубликовать» в админке Netlify пересобирает сайт примерно за минуту.
+
+Как устроен вход: функции `netlify/functions/auth.mjs` и `callback.mjs` обмениваются ключами с GitHub.
+Нужны переменные окружения в Netlify (Keys and secrets): `GITHUB_CLIENT_ID` и `GITHUB_CLIENT_SECRET`
+из OAuth-приложения GitHub «Portfolio admin (Decap CMS)». **При подключении своего домена** добавьте
+в этом приложении на GitHub ещё один Redirect URI: `https://ваш-домен/api/callback`.
 
 ## Широкие экраны
 
