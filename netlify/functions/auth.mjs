@@ -3,7 +3,7 @@
 
 export default async (req) => {
   const url = new URL(req.url);
-  const clientId = process.env.GITHUB_CLIENT_ID;
+  const clientId = (process.env.GITHUB_CLIENT_ID || '').trim();
   if (!clientId) {
     return new Response('В Netlify не задана переменная GITHUB_CLIENT_ID', { status: 500 });
   }
