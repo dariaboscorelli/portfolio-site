@@ -1,17 +1,40 @@
-slug: hot-pot
-# --- Плитка на главной ---
-title: "Hot Pot"
-tag: "БРЕНДИНГ"
-category: branding
-summary: "Айдентика ресторана: логотип, меню, афиши, фирменные носители"
+slug: dushevniy-festival
+title: Душевный фестиваль
+tag: БРЕНДИНГ
+category: ads
+summary: "Рекламная и печатная продукция для концерта «Душевный фестиваль»:
+  афиши, баннеры, полиграфия для площадки."
 order: 2
-cover: "/images/uploads/cover-hotpot.webp"
+showOnHome: true
+cover: /images/uploads/обложка.jpg
 coverHeight: 373
-
-# --- Страница кейса (заполнить) ---
-lead: ""
-client: ""
-role: ""
-tools: ""
-# hero: /images/uploads/имя-файла.webp
-sections: []
+lead: Делаю айдентику и упаковку, рекламные кампании и SMM, спецпроекты и
+  графику для прямых трансляций, LAN экранов.
+client: МУЗЫКАЛЬНАЯ МЕДИАКОМПАНИЯ
+role: Дизайнер рекламной и печатной продукции
+tools: Illustrator, Photoshop, Figma
+hero: /images/uploads/cover-hotpot.webp
+sections:
+  - label: ЗАДАЧА
+    text: "Подготовить рекламные и печатные материалы для продвижения концерта. Всё
+      должно было работать в одном стиле, материалов было много: у каждого свои
+      размеры и технические требования: от городских афиш до полиграфии на
+      площадке и экранов на сцене."
+    width: 900
+  - label: РЕЗУЛЬТАТ
+    text: "Адаптирован фирменный стиль фестиваля под рекламные носители: афиши,
+      наружную рекламу, баннеры для соцсетей и сайтов продажи билетов.
+      Подготовлена печатная продукция для площадки с учётом требований
+      типографий."
+    width: 895
+    media:
+      - type: image
+        src: /images/uploads/hud-в-игре-—-крупно.png
+      - type: image
+        src: /images/uploads/frame-8.png
+      - type: image
+        src: /images/uploads/hud-в-игре-—-крупно-1.png
+      - type: image
+        src: /images/uploads/frame-7.png
+      - type: image
+        src: /images/uploads/hud-в-игре-—-крупно-2.png
