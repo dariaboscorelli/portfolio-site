@@ -56,6 +56,17 @@ const { title, tag, summary, cover, coverHeight, coverVideo, category, order } =
   .tile__video.is-playing {
     visibility: visible;
   }
+  /* обложка чёрно-белая, при наведении на плитку — цветная.
+     Только для устройств с мышью: на телефонах наведения нет, там обложки остаются цветными. */
+  @media (hover: hover) {
+    .tile__cover img {
+      filter: grayscale(1);
+    }
+    .tile:hover .tile__cover img,
+    .tile:focus-visible .tile__cover img {
+      filter: none;
+    }
+  }
   .tile__info {
     display: flex;
     flex-direction: column;
