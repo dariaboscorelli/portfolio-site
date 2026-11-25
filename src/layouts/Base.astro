@@ -23,3 +23,38 @@ const { title, description } = Astro.props;
     <slot />
   </body>
 </html>
+
+<script>
+  // «Шифровка» кнопок .btn: при наведении буквы на долю секунды перебираются случайными символами
+  // и собираются обратно слева направо. Шрифт моноширинный, поэтому ширина кнопки не меняется.
+  // Только для устройств с мышью; если в системе включено «уменьшить движение» — эффекта нет.
+  const CHARS = 'АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЭЮЯ#%&*/<>01';
+  const DURATION = 540; // мс — вся анимация
+  const SPREAD = 420; // мс — за это время буквы по очереди встают на место
+
+  if (matchMedia('(hover: hover)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    for (const btn of document.querySelectorAll<HTMLElement>('.btn')) {
+      const text = btn.textContent ?? '';
+      // экранные дикторы читают исходный текст, а не перебор символов
+      btn.setAttribute('aria-label', text);
+      let raf = 0;
+      btn.addEventListener('mouseenter', () => {
+        cancelAnimationFrame(raf);
+        const start = performance.now();
+        const frame = (now: number) => {
+          const t = now - start;
+          let out = '';
+          for (let i = 0; i < text.length; i++) {
+            const ch = text[i];
+            const settled = ch === ' ' || t > 90 + i * (SPREAD / text.length);
+            out += settled ? ch : CHARS[(Math.random() * CHARS.length) | 0];
+          }
+          btn.textContent = out;
+          if (t < DURATION) raf = requestAnimationFrame(frame);
+          else btn.textContent = text;
+        };
+        raf = requestAnimationFrame(frame);
+      });
+    }
+  }
+</script>
