@@ -123,6 +123,13 @@ const filters = [
     font-size: 14px;
     color: var(--muted);
   }
+  /* при наведении текст пункта (кроме выбранного) становится фирменным розовым — сразу, без перехода */
+  .filter__item:not(.is-active):hover .filter__title,
+  .filter__item:not(.is-active):hover .filter__count,
+  .filter__item:not(.is-active):focus-visible .filter__title,
+  .filter__item:not(.is-active):focus-visible .filter__count {
+    color: var(--accent);
+  }
   .filter__item.is-active {
     background: var(--accent-2);
     border-radius: 0;
