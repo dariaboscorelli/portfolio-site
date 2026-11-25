@@ -52,6 +52,11 @@ import { u } from '../lib/url';
     line-height: normal;
     color: var(--text);
   }
+  /* при наведении пункт меню становится фирменным розовым — сразу, без плавного перехода */
+  .header__nav a:hover,
+  .header__nav a:focus-visible {
+    color: var(--accent);
+  }
   .header__right {
     display: flex;
     align-items: center;

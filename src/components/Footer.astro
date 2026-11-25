@@ -69,4 +69,11 @@ import site from '../data/site.json';
   .footer__up {
     font-family: var(--font-sans);
   }
+  /* почта, Telegram, Behance и «Наверх» при наведении — фирменный розовый, сразу, без перехода */
+  .footer__contacts > *:hover,
+  .footer__contacts > a:focus-visible,
+  .footer__up:hover,
+  .footer__up:focus-visible {
+    color: var(--accent);
+  }
 </style>
