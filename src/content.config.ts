@@ -17,6 +17,8 @@ const picture = z.object({ src: optPath, video: optPath, alt: optText });
 const mediaBlock = z.discriminatedUnion('type', [
   // одна картинка или видео на всю ширину
   z.object({ type: z.literal('image'), src: optPath, video: optPath, alt: optText }),
+  // видео на всю ширину (картинка — необязательная обложка до загрузки)
+  z.object({ type: z.literal('video'), video: optPath, src: optPath, alt: optText }),
   // ряд картинок одинаковой высоты
   z.object({
     type: z.literal('row'),

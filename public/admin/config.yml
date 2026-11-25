@@ -76,18 +76,26 @@ collections:
           - { name: text, label: 'Текст', widget: text, required: false }
           - { name: width, label: 'Ширина текста, px (необязательно)', widget: number, value_type: int, required: false, hint: 'Если пусто — на всю ширину колонки (960 px).' }
           - name: media
-            label: 'Картинки и подписи'
+            label: 'Картинки, видео и подписи'
             label_singular: 'блок'
+            hint: 'Нажмите «Добавить блок» и выберите: картинку, видео, ряд картинок/видео или плашку с подписью.'
             widget: list
             required: false
             typeKey: type
             types:
               - name: image
-                label: 'Картинка или видео на всю ширину'
+                label: 'Картинка на всю ширину'
                 summary: '{{fields.video}} {{fields.src}}'
                 fields:
                   - { name: src, label: 'Картинка', widget: image, required: false, choose_url: false, hint: 'Если ниже есть видео, картинка видна, пока оно грузится.' }
                   - { name: video, label: 'Видео вместо картинки (MP4)', widget: file, required: false, choose_url: false, hint: 'Играет само, без звука, по кругу. Пропорции берутся из ролика. MP4 (H.264), лучше до 15 МБ.' }
+                  - { name: alt, label: 'Описание (для поиска и незрячих)', widget: string, required: false }
+              - name: video
+                label: 'Видео на всю ширину'
+                summary: '{{fields.video}}'
+                fields:
+                  - { name: video, label: 'Видео (MP4)', widget: file, choose_url: false, hint: 'Играет само, без звука, по кругу, когда до него долистали. Пропорции берутся из ролика. MP4 (H.264), лучше до 15 МБ.' }
+                  - { name: src, label: 'Картинка-обложка (необязательно)', widget: image, required: false, choose_url: false, hint: 'Видна, пока видео грузится.' }
                   - { name: alt, label: 'Описание (для поиска и незрячих)', widget: string, required: false }
               - name: row
                 label: 'Ряд картинок или видео одной высоты'

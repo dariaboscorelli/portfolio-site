@@ -66,7 +66,7 @@ const passport = [
               </p>
             )}
             {s.media.map((m) =>
-              m.type === 'image' ? (
+              m.type === 'image' || m.type === 'video' ? (
                 <CaseImage src={m.src} video={m.video} alt={m.alt} />
               ) : m.type === 'row' ? (
                 <div class="case-row" style={`gap: ${m.gap}px`}>
