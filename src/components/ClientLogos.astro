@@ -1,8 +1,9 @@
 ---
 // Лента логотипов клиентов — позиции и размеры перенесены из макета (группа шириной 1936 px,
 // видимая часть обрезается по ширине колонки, как в Figma).
+import { u } from '../lib/url';
 type Logo = { src: string; x: number; y: number; w: number; h: number; style?: string };
-const L = '/images/logos/';
+const L = u('/images/logos/');
 const logos: Logo[] = [
   { src: 'logo-01.svg', x: 0, y: 27.81, w: 75.722, h: 14.374 },
   { src: 'logo-02.png', x: 99.72, y: 0, w: 70, h: 70 },

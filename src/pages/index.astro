@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
@@ -30,8 +31,8 @@ const filters = [
       <h1 class="home-aside__title trim-druk-110">{site.home.title}</h1>
       <p class="home-aside__desc">{site.home.description}</p>
       <div class="home-aside__buttons">
-        <a class="btn btn--primary" href="/contacts/">Написать мне</a>
-        <a class="btn btn--outline" href={site.resume} target="_blank" rel="noopener">Резюме PDF</a>
+        <a class="btn btn--primary" href={u('/contacts/')}>Написать мне</a>
+        <a class="btn btn--outline" href={u(site.resume)} target="_blank" rel="noopener">Резюме PDF</a>
       </div>
       <div class="home-aside__divider"></div>
       <ul class="filter">

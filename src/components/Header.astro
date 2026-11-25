@@ -1,22 +1,23 @@
 ---
 import site from '../data/site.json';
+import { u } from '../lib/url';
 ---
 
 <header class="header">
   <div class="header__left">
-    <a class="header__name" href="/">{site.name}</a>
+    <a class="header__name" href={u('/')}>{site.name}</a>
     <nav class="header__nav">
-      <a href="/">Работы</a>
-      <a href="/about/">Обо мне</a>
-      <a href="/contacts/">Контакты</a>
+      <a href={u('/')}>Работы</a>
+      <a href={u('/about/')}>Обо мне</a>
+      <a href={u('/contacts/')}>Контакты</a>
     </nav>
   </div>
   <div class="header__right">
     <a class="header__tg" href={`https://t.me/${site.telegram}`} target="_blank" rel="noopener">
-      <img src="/icons/telegram.svg" width="24" height="24" alt="" />
+      <img src={u('/icons/telegram.svg')} width="24" height="24" alt="" />
       <span>@{site.telegram}</span>
     </a>
-    <a class="btn btn--outline" href={site.resume} target="_blank" rel="noopener">Резюме PDF →</a>
+    <a class="btn btn--outline" href={u(site.resume)} target="_blank" rel="noopener">Резюме PDF →</a>
   </div>
 </header>
 

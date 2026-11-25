@@ -1,5 +1,6 @@
 ---
 import { ratioOf } from '../lib/images';
+import { u } from '../lib/url';
 
 interface Props {
   src?: string;
@@ -17,14 +18,14 @@ const ratio = (video && ratioOf(video)) || ratioOf(src) || fallbackRatio;
 ---
 
 <figure class="case-image ph" style={`aspect-ratio: ${ratio}`}>
-  {src && <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
+  {src && <img src={u(src)} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
   {
     video &&
       (eager ? (
-        <video src={video} poster={src} autoplay muted loop playsinline preload="auto" aria-label={alt || undefined} />
+        <video src={u(video)} poster={u(src)} autoplay muted loop playsinline preload="auto" aria-label={alt || undefined} />
       ) : (
         // видео ниже первого экрана начинает грузиться и играть, только когда до него долистали
-        <video src={video} poster={src} muted loop playsinline preload="none" data-inview aria-label={alt || undefined} />
+        <video src={u(video)} poster={u(src)} muted loop playsinline preload="none" data-inview aria-label={alt || undefined} />
       ))
   }
 </figure>

@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import site from '../data/site.json';
@@ -27,7 +28,7 @@ import site from '../data/site.json';
         <div class="contacts__row">
           <p class="contacts__label">РЕЗЮМЕ</p>
           <p class="contacts__value">{site.resumeNote}</p>
-          <a class="contacts__action" href={site.resume} download>
+          <a class="contacts__action" href={u(site.resume)} download>
             <span class="br">[</span> Скачать ↓ <span class="br">]</span>
           </a>
         </div>

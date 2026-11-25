@@ -1,4 +1,5 @@
 ---
+import { u } from '../../lib/url';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import Header from '../../components/Header.astro';
@@ -29,7 +30,7 @@ const passport = [
   <Header />
   <main class="layout">
     <aside class="layout__aside case-aside">
-      <a class="case-aside__back" href="/">← Все работы</a>
+      <a class="case-aside__back" href={u('/')}>← Все работы</a>
       <h1 class="case-aside__title trim-druk-110">{d.title}</h1>
       {d.lead && <p class="case-aside__lead">{d.lead}</p>}
       {

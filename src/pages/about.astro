@@ -1,4 +1,5 @@
 ---
+import { u } from '../lib/url';
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -13,9 +14,9 @@ import { lines } from '../lib/images';
   <main class="layout">
     <aside class="layout__aside about-aside">
       <div class="about-aside__photo ph">
-        {about.photo && <img src={about.photo} alt={site.name} />}
+        {about.photo && <img src={u(about.photo)} alt={site.name} />}
       </div>
-      <a class="btn btn--outline" href={site.resume} target="_blank" rel="noopener">Резюме PDF →</a>
+      <a class="btn btn--outline" href={u(site.resume)} target="_blank" rel="noopener">Резюме PDF →</a>
     </aside>
 
     <div class="layout__main about-main">

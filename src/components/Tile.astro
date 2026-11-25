@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { u } from '../lib/url';
 
 interface Props {
   entry: CollectionEntry<'cases'>;
@@ -8,13 +9,13 @@ const { entry } = Astro.props;
 const { title, tag, summary, cover, coverHeight, coverVideo, category, order } = entry.data;
 ---
 
-<a class="tile" href={`/work/${entry.id}/`} data-category={category} data-order={order}>
+<a class="tile" href={u(`/work/${entry.id}/`)} data-category={category} data-order={order}>
   <div class="tile__cover ph" style={`aspect-ratio: 468 / ${coverHeight}`}>
-    {cover && <img src={cover} alt={title} loading="lazy" decoding="async" />}
+    {cover && <img src={u(cover)} alt={title} loading="lazy" decoding="async" />}
     {
       coverVideo && (
         // ролик грузится только при первом наведении (preload="none") и играет, пока курсор на плитке
-        <video class="tile__video" src={coverVideo} muted loop playsinline preload="none" aria-hidden="true" />
+        <video class="tile__video" src={u(coverVideo)} muted loop playsinline preload="none" aria-hidden="true" />
       )
     }
   </div>
