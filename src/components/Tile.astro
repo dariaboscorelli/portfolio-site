@@ -61,6 +61,8 @@ const { title, tag, summary, cover, coverHeight, coverVideo, category, order } =
   @media (hover: hover) {
     .tile__cover img {
       filter: grayscale(1);
+      /* плавный переход в цвет и обратно; длительность — 0.4s */
+      transition: filter 0.4s ease;
     }
     .tile:hover .tile__cover img,
     .tile:focus-visible .tile__cover img {
