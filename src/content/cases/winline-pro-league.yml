@@ -44,4 +44,5 @@ sections:
         gap: 16
         images:
           - video: /images/uploads/fpg-grid-1.webp
-            src: /images/uploads/fpg-grid-2.webp
+            src: ""
+          - src: /images/uploads/fpg-grid-2.webp
