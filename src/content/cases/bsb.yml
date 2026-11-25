@@ -1,17 +1,38 @@
-slug: bsb
-# --- Плитка на главной ---
-title: "BSB"
-tag: "КИБЕРСПОРТ · 2026"
-category: esports
-summary: "Графика для эфира BetBoom Streamers Battle по CS 2"
+slug: sber-zvuk
+title: СберЗвук
+tag: РЕКЛАМА
+category: ads
+summary: "Рекламные макеты для музыкального сервиса Звук: креативы для
+  таргетированной и контекстной рекламы."
 order: 5
-# cover: /images/uploads/имя-файла.webp
+showOnHome: true
+coverVideo: /images/uploads/звук_web.mp4
 coverHeight: 314
-
-# --- Страница кейса (заполнить) ---
-lead: ""
-client: ""
-role: ""
-tools: ""
-# hero: /images/uploads/имя-файла.webp
-sections: []
+lead: |-
+  Рекламные макеты для музыкального сервиса Звук: креативы
+  для таргетированной и контекстной рекламы.
+client: Звук
+role: Ведущий дизайнер
+tools: Figma, Nana Banana
+heroVideo: /images/uploads/звук_web.mp4
+sections:
+  - label: ЗАДАЧА
+    text: Звуку нужен был постоянный поток рекламных креативов. Макеты должны
+      узнаваться как Звук, цеплять в ленте и в рекламных сетях за доли секунды и
+      выходить во множестве форматов и размеров.
+  - label: РЕЗУЛЬТАТ
+    text: Все макеты выполнены качественно, строго по брендбуку Звука и с учётом
+      всех пожеланий клиента.
+    media:
+      - type: image
+        src: /images/uploads/frame-1321318609.png
+      - type: image
+        src: /images/uploads/frame-2147226346.png
+      - type: image
+        src: /images/uploads/frame-2147226347.png
+      - type: image
+        src: /images/uploads/frame-2147226348.png
+  - label: ФАНФАКТ
+    text: |-
+      Была выполнена работа объёмом в 14 400 макетов за одну кампанию:
+      450 артистов × 32 формата шаблонов.
