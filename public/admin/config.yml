@@ -33,7 +33,7 @@ collections:
     summary: '{{order}}. {{title}}'
     sortable_fields: ['order', 'title'] # в списке выберите «Сортировать по → Порядок на главной», админка запомнит
     editor:
-      preview: false
+      preview: true # живое превью справа (public/admin/preview.js)
     fields:
       - { name: slug, label: 'Адрес страницы', widget: string, hint: 'Латиницей, через дефис: hot-pot → сайт.ru/work/hot-pot/. Задаётся один раз при создании кейса.', pattern: ['^[a-z0-9-]+$', 'Только маленькие латинские буквы, цифры и дефис'] }
 
@@ -120,7 +120,7 @@ collections:
   - name: settings
     label: Настройки сайта
     editor:
-      preview: false
+      preview: true # живое превью справа (public/admin/preview.js)
     files:
       - name: site
         label: Контакты и главная
