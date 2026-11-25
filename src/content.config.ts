@@ -49,6 +49,7 @@ const cases = defineCollection({
     summary: optText, // строка под названием
     order: z.coerce.number(), // порядок на главной: 1, 2, 3… (нечётные — левая колонка, чётные — правая)
     cover: optPath,
+    coverVideo: optPath, // короткий ролик, который играет при наведении на плитку
     coverHeight: optNumber.transform((v) => v ?? 400), // высота обложки при ширине плитки 468 px
     showOnHome: z.preprocess(empty, z.boolean().optional()).transform((v) => v ?? true),
     // --- страница кейса ---

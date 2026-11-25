@@ -54,6 +54,7 @@ collections:
       - { name: order, label: 'Порядок на главной', widget: number, value_type: int, min: 1, hint: '1, 2, 3… Нечётные встают в левую колонку, чётные — в правую.' }
       - { name: showOnHome, label: 'Показывать на главной', widget: boolean, default: true, required: false }
       - { name: cover, label: 'Обложка плитки', widget: image, required: false, choose_url: false }
+      - { name: coverVideo, label: 'Видео при наведении (MP4)', widget: file, required: false, choose_url: false, hint: 'Играет вместо обложки, пока курсор на плитке. Лучше 3–8 секунд, без звука, MP4 (H.264), до 5 МБ, в тех же пропорциях, что и обложка.' }
       - { name: coverHeight, label: 'Высота обложки, px', widget: number, value_type: int, default: 400, required: false, hint: 'Высота при ширине плитки 468 px, как в Figma. От неё зависит мозаика.' }
 
       # --- страница кейса ---
