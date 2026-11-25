@@ -1,17 +1,31 @@
-slug: old-cast-winline
-# --- Плитка на главной ---
-title: "Old Cast × Winline"
-tag: "СПЕЦПРОЕКТ"
-category: special
-summary: "3D-студия для шоу, газета «Советский киберспорт», этикетки, ИИ-плакаты"
+slug: more-john-dory
+title: "«Море» от John dory: упаковка"
+tag: УПАКОВКА
+category: branding
+summary: Дизайн упаковки для линейки замороженной рыбы «Море» от John Dory и
+  подготовка макетов к печати.
 order: 3
-cover: "/images/uploads/cover-oldcast.webp"
+showOnHome: true
+cover: /images/uploads/cover-oldcast.webp
 coverHeight: 413
-
-# --- Страница кейса (заполнить) ---
-lead: ""
-client: ""
-role: ""
-tools: ""
-# hero: /images/uploads/имя-файла.webp
-sections: []
+lead: Дизайн упаковки для линейки замороженной рыбы «Море» от John Dory и
+  подготовка макетов к печати.
+client: John Dory
+role: Дизайнер
+tools: Illustrator, Photoshop, Figma
+hero: /images/uploads/cover-oldcast.webp
+sections:
+  - label: ЗАДАЧА
+    text: "Оформить упаковку для линейки замороженной рыбы: треска филе лоин, филе
+      блочное и фарш трески. Линейка должна выглядеть единой, но каждый продукт
+      нужно легко отличить от других. Ещё одна важная часть задачи — подготовить
+      макеты к печати на гибкой упаковке."
+  - label: РЕЗУЛЬТАТ
+    text: "Упаковка вышла в печать и уже продаётся в магазинах. Линейка выглядит
+      цельно и хорошо читается на полке: покупатель сразу видит продукт, вес и
+      быстро узнает бренд."
+    media:
+      - type: image
+        src: /images/uploads/hud-в-игре-—-крупно.png
+      - type: image
+        src: /images/uploads/frame-7.png
