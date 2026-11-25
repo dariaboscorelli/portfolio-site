@@ -1,17 +1,35 @@
-slug: okko-zvuk
-# --- Плитка на главной ---
-title: "Okko × Звук"
-tag: "РЕКЛАМА"
+slug: avto
+title: Автоцентры
+tag: РЕКЛАМА
 category: ads
-summary: "Рекламная кампания: баннеры во всех форматах"
+summary: "Реклама для автосалонов Минска: анонсы новых моделей, посты и сторис
+  для соцсетей, баннеры и печатная продукция."
 order: 6
-# cover: /images/uploads/имя-файла.webp
+showOnHome: true
 coverHeight: 357
-
-# --- Страница кейса (заполнить) ---
-lead: ""
-client: ""
-role: ""
-tools: ""
-# hero: /images/uploads/имя-файла.webp
-sections: []
+lead: "Реклама для автосалонов Минска: анонсы новых моделей, посты и сторис для
+  соцсетей, баннеры и печатная продукция."
+client: Атлант-М
+role: Дизайнер
+tools: Figma, Illustrator, Photoshop
+heroVideo: /images/uploads/авто_web.mp4
+sections:
+  - label: ЗАДАЧА
+    text: Анонсировать новые модели и акции автосалонов, чтобы реклама цепляла и в
+      ленте, и на улице. При этом каждая марка должна оставаться в своём
+      фирменном стиле и с чувством премиальности.
+  - label: РЕЗУЛЬТАТ
+    text: У каждого салона появилась своя серия макетов, от сторис до печатных
+      баннеров. Главное в каждом макете - сам автомобиль, а модель, предложение
+      и контакты салона видны с первого взгляда.
+    media:
+      - type: image
+        src: /images/uploads/frame-1321318609.png
+      - type: image
+        src: /images/uploads/frame-1321318610.png
+      - type: image
+        src: /images/uploads/frame-1321318611.png
+      - type: image
+        src: /images/uploads/frame-1321318612.png
+      - type: image
+        src: /images/uploads/frame-1321318613.png
