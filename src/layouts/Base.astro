@@ -25,33 +25,47 @@ const { title, description } = Astro.props;
 </html>
 
 <script>
-  // «Шифровка» кнопок .btn: при наведении буквы на долю секунды перебираются случайными символами
-  // и собираются обратно слева направо. Шрифт моноширинный, поэтому ширина кнопки не меняется.
+  // «Шифровка» кнопок (.btn) и ссылок на странице контактов (.contacts__action):
+  // при наведении буквы на долю секунды перебираются случайными символами и собираются обратно
+  // слева направо. Шрифт моноширинный, поэтому ширина не меняется. Красные скобки [ ] не трогаются.
   // Только для устройств с мышью; если в системе включено «уменьшить движение» — эффекта нет.
   const CHARS = 'АБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЭЮЯ#%&*/<>01';
   const DURATION = 540; // мс — вся анимация
   const SPREAD = 420; // мс — за это время буквы по очереди встают на место
 
   if (matchMedia('(hover: hover)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    for (const btn of document.querySelectorAll<HTMLElement>('.btn')) {
-      const text = btn.textContent ?? '';
+    for (const el of document.querySelectorAll<HTMLElement>('.btn, .contacts__action')) {
+      // текстовые куски, которые перебираются (всё, кроме скобок .br)
+      const nodes: Text[] = [];
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+      while (walker.nextNode()) {
+        const node = walker.currentNode as Text;
+        if (!node.parentElement?.closest('.br')) nodes.push(node);
+      }
+      const originals = nodes.map((n) => n.data);
+      const total = originals.join('').length;
+      if (!total) continue;
       // экранные дикторы читают исходный текст, а не перебор символов
-      btn.setAttribute('aria-label', text);
+      el.setAttribute('aria-label', originals.join('').replace(/\s+/g, ' ').trim());
+
       let raf = 0;
-      btn.addEventListener('mouseenter', () => {
+      el.addEventListener('mouseenter', () => {
         cancelAnimationFrame(raf);
         const start = performance.now();
         const frame = (now: number) => {
           const t = now - start;
-          let out = '';
-          for (let i = 0; i < text.length; i++) {
-            const ch = text[i];
-            const settled = ch === ' ' || t > 90 + i * (SPREAD / text.length);
-            out += settled ? ch : CHARS[(Math.random() * CHARS.length) | 0];
-          }
-          btn.textContent = out;
+          let index = 0;
+          nodes.forEach((node, k) => {
+            let out = '';
+            for (const ch of originals[k]) {
+              const settled = ch.trim() === '' || t > 90 + index * (SPREAD / total);
+              out += settled ? ch : CHARS[(Math.random() * CHARS.length) | 0];
+              index++;
+            }
+            node.data = out;
+          });
           if (t < DURATION) raf = requestAnimationFrame(frame);
-          else btn.textContent = text;
+          else nodes.forEach((node, k) => (node.data = originals[k]));
         };
         raf = requestAnimationFrame(frame);
       });
