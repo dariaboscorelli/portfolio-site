@@ -43,6 +43,6 @@ sections:
       - type: row
         gap: 16
         images:
-          - video: /images/uploads/fpg-grid-1.webp
+          - video: /images/uploads/полоса_загрузки-trim_web.mp4
             src: ""
           - src: /images/uploads/fpg-grid-2.webp
