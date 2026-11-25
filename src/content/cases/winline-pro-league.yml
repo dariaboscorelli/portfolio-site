@@ -50,3 +50,8 @@ sections:
         src: /images/uploads/fpg-characters.webp
       - type: image
         src: /images/uploads/fpg-main-screen.webp
+      - type: row
+        gap: 16
+        images:
+          - video: /images/uploads/cover-winline.webp
+          - video: /images/uploads/fpg-photo-2.webp
