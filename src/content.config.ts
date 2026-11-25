@@ -58,6 +58,7 @@ const cases = defineCollection({
     role: optText,
     tools: optText,
     hero: optPath,
+    heroVideo: optPath, // видео вместо главной картинки кейса
     sections: z.preprocess(empty, z.array(section).optional()).transform((v) => v ?? []),
   }),
 });

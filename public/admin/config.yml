@@ -62,7 +62,8 @@ collections:
       - { name: client, label: 'Клиент', widget: string, required: false }
       - { name: role, label: 'Моя роль', widget: string, required: false }
       - { name: tools, label: 'Инструменты', widget: string, required: false }
-      - { name: hero, label: 'Главная картинка кейса (16:9)', widget: image, required: false, choose_url: false }
+      - { name: hero, label: 'Главная картинка кейса (16:9)', widget: image, required: false, choose_url: false, hint: 'Если ниже загружено видео, картинка видна, пока видео грузится.' }
+      - { name: heroVideo, label: 'Главное видео кейса (MP4)', widget: file, required: false, choose_url: false, hint: 'Показывается вместо главной картинки: играет само, без звука, по кругу. MP4 (H.264), 16:9, лучше до 15 МБ.' }
       - name: sections
         label: 'Разделы'
         label_singular: 'раздел'
