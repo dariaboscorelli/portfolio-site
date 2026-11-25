@@ -6,7 +6,7 @@ summary: "Оформление экранов на сцене турнира FIS
   Counter-Strike 2: статичная графика для LED-экранов и раскадровки для
   моушен-дизайнера."
 order: 1
-showOnHome: false
+showOnHome: true
 cover: /images/uploads/fpg-photo-1.webp
 coverVideo: /images/uploads/img_4197.mov
 coverHeight: 493
