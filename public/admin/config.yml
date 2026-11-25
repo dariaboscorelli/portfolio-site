@@ -63,7 +63,7 @@ collections:
       - { name: role, label: 'Моя роль', widget: string, required: false }
       - { name: tools, label: 'Инструменты', widget: string, required: false }
       - { name: hero, label: 'Главная картинка кейса (16:9)', widget: image, required: false, choose_url: false, hint: 'Если ниже загружено видео, картинка видна, пока видео грузится.' }
-      - { name: heroVideo, label: 'Главное видео кейса (MP4)', widget: file, required: false, choose_url: false, hint: 'Показывается вместо главной картинки: играет само, без звука, по кругу. MP4 (H.264), 16:9, лучше до 15 МБ.' }
+      - { name: heroVideo, label: 'Главное видео кейса (MP4)', widget: file, required: false, choose_url: false, hint: 'Показывается вместо главной картинки: играет само, без звука, по кругу. MP4 (H.264), 16:9, лучше до 15 МБ, максимум 25 МБ.' }
       - name: sections
         label: 'Разделы'
         label_singular: 'раздел'
@@ -88,13 +88,13 @@ collections:
                 summary: '{{fields.video}} {{fields.src}}'
                 fields:
                   - { name: src, label: 'Картинка', widget: image, required: false, choose_url: false, hint: 'Если ниже есть видео, картинка видна, пока оно грузится.' }
-                  - { name: video, label: 'Видео вместо картинки (MP4)', widget: file, required: false, choose_url: false, hint: 'Играет само, без звука, по кругу. Пропорции берутся из ролика. MP4 (H.264), лучше до 15 МБ.' }
+                  - { name: video, label: 'Видео вместо картинки (MP4)', widget: file, required: false, choose_url: false, hint: 'Играет само, без звука, по кругу. Пропорции берутся из ролика. MP4 (H.264), лучше до 15 МБ, максимум 25 МБ.' }
                   - { name: alt, label: 'Описание (для поиска и незрячих)', widget: string, required: false }
               - name: video
                 label: 'Видео на всю ширину'
                 summary: '{{fields.video}}'
                 fields:
-                  - { name: video, label: 'Видео (MP4)', widget: file, choose_url: false, hint: 'Играет само, без звука, по кругу, когда до него долистали. Пропорции берутся из ролика. MP4 (H.264), лучше до 15 МБ.' }
+                  - { name: video, label: 'Видео (MP4)', widget: file, choose_url: false, hint: 'Играет само, без звука, по кругу, когда до него долистали. Пропорции берутся из ролика. MP4 (H.264), лучше до 15 МБ, максимум 25 МБ.' }
                   - { name: src, label: 'Картинка-обложка (необязательно)', widget: image, required: false, choose_url: false, hint: 'Видна, пока видео грузится.' }
                   - { name: alt, label: 'Описание (для поиска и незрячих)', widget: string, required: false }
               - name: row
