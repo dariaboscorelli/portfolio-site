@@ -1,18 +1,26 @@
-slug: winline-pro-league
-title: Winline Pro League
+slug: fissure-cs2
+title: FISSURE PLAYGROUND COUNTER STRIKE 2
 tag: КИБЕРСПОРТ · ТРАНСЛЯЦИИ
 category: esports
-summary: "Полный пакет эфира: KV, оверлеи, HUD, плашки и SMM турнира"
+summary: "Оформление экранов на сцене турнира FISSURE Playground по
+  Counter-Strike 2: статичная графика для LED-экранов и раскадровки для
+  моушен-дизайнера."
 order: 1
-cover: /images/uploads/cover-oldcast.webp
+showOnHome: false
+cover: /images/uploads/fpg-photo-1.webp
 coverHeight: 493
-lead: "Полный пакет эфира: KV, оверлеи, HUD, плашки и SMM турнираПолный пакет
-  эфира: KV, оверлеи, HUD, плашки и SMM турнираПолный пакет эфира: KV, оверлеи,
-  HUD, плашки и SMM турнираПолный пакет эфира: KV, оверлеи, HUD, плашки и SMM
-  турнираПолный пакет эфира: KV, оверлеи, HUD, плашки и SMM турнираПолный пакет
-  эфира: KV, оверлеи, HUD, плашки и SMM турнира"
-client: "Полный пакет эфира: KV, оверлеи, HUD, плашки и SMM турнира"
-role: "Полный пакет эфира: KV, оверлеи, HUD, плашки и SMM турнира"
-tools: "Полный пакет эфира: KV, оверлеи, HUD, плашки и SMM турнира"
-hero: /images/uploads/fpg-hud.webp
-sections: []
+lead: "Оформление экранов на сцене турнира FISSURE Playground по Counter-Strike
+  2: статичная графика для LED-экранов и раскадровки для моушен-дизайнера."
+client: Fissure
+role: Дизайнер графики экранов
+tools: Figma
+hero: /images/uploads/fpg-photo-2.webp
+sections:
+  - label: ЗАДАЧА
+    text: "Оформить все экраны турнирной сцены: главный экран, боковые экраны и
+      LED-панели на столах игроков. Графика должна была сделана в стиле турнира,
+      хорошо читаться из зала. Счёт, составы и статистика игроков меняются по
+      ходу матча, поэтому макеты нужно было собрать так, чтобы их было легко
+      запрограммировать и анимировать."
+    width: 864
+    media: []
