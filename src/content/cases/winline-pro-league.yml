@@ -46,3 +46,7 @@ sections:
           - video: /images/uploads/полоса_загрузки-trim_web.mp4
             src: ""
           - src: /images/uploads/fpg-grid-2.webp
+      - type: image
+        src: /images/uploads/fpg-characters.webp
+      - type: image
+        src: /images/uploads/fpg-main-screen.webp
