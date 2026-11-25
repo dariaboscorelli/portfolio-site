@@ -1,17 +1,33 @@
 slug: dreamleague-avulus
-# --- Плитка на главной ---
-title: "DreamLeague × Avulus"
-tag: "КИБЕРСПОРТ · SMM"
-category: esports
-summary: "Система постов команды: матчдей, лайв, победа, поражение"
+title: Oxdetox.by
+tag: РЕКЛАМА · SMM
+category: ads
+summary: Посты и сторис для Instagram сервиса доставки рационов питания OxDetox.by.
 order: 7
-# cover: /images/uploads/имя-файла.webp
+showOnHome: true
+coverVideo: /images/uploads/oxdetox_web.mp4
 coverHeight: 453
+lead: Посты и сторис для Instagram сервиса доставки рационов питания OxDetox.by.
+client: OxDetox.by
+role: SMM-Дизайнер
+tools: Figma, Nana Banana
+heroVideo: /images/uploads/oxdetox_web.mp4
+sections:
+  - label: ЗАДАЧА
+    text: |-
+      Рассказать подписчикам об обновлении и показать, что качество рационов
+      и сервиса осталось прежним, а затем запустить акции для новых клиентов.
+  - label: РЕЗУЛЬТАТ
+    text: >-
+      Аккаунт получил цельный узнаваемый стиль: посты читаются в ленте
 
-# --- Страница кейса (заполнить) ---
-lead: ""
-client: ""
-role: ""
-tools: ""
-# hero: /images/uploads/имя-файла.webp
-sections: []
+      с первого взгляда, а акции и цены заметны сразу. Анонс обновления
+
+      и промо-серии помогли запустить новые акции и объяснить подписчикам их условия без лишних вопросов.
+    media:
+      - type: image
+        src: /images/uploads/frame-1321318606.png
+      - type: image
+        src: /images/uploads/frame-1321318607.png
+      - type: image
+        src: /images/uploads/frame-1321318608.png
