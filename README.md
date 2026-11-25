@@ -40,14 +40,22 @@ npm run build    # готовый сайт в папке dist/
 `npm run cms` и `npm run dev`, затем откройте http://localhost:4321/admin/index.html и нажмите «Войти».
 Правки сразу записываются в файлы проекта.
 
-**На опубликованном сайте:** `адрес-сайта/admin/` → «Войти через GitHub». Файлы сайта лежат
-в репозитории GitHub `dariaboscorelli/portfolio-site`, хостинг — Netlify (настройки сборки в `netlify.toml`).
-После «Опубликовать» в админке Netlify пересобирает сайт примерно за минуту.
+## Где работает сайт
 
-Как устроен вход: функции `netlify/functions/auth.mjs` и `callback.mjs` обмениваются ключами с GitHub.
-Нужны переменные окружения в Netlify (Keys and secrets): `GITHUB_CLIENT_ID` и `GITHUB_CLIENT_SECRET`
-из OAuth-приложения GitHub «Portfolio admin (Decap CMS)». **При подключении своего домена** добавьте
-в этом приложении на GitHub ещё один Redirect URI: `https://ваш-домен/api/callback`.
+- **Сайт:** GitHub Pages — https://dariaboscorelli.github.io/portfolio-site/
+  Публикуется сам при каждом изменении в ветке `main` (`.github/workflows/deploy.yml`), обычно за 1–2 минуты.
+  Ход публикации: вкладка Actions в репозитории.
+- **Админка:** https://portfolio-site-86is.netlify.app/admin/ → «Войти через GitHub».
+  Она осталась на Netlify, потому что там работает вход через GitHub (функции `netlify/functions/auth.mjs`
+  и `callback.mjs`, переменные `GITHUB_CLIENT_ID` и `GITHUB_CLIENT_SECRET` в Netlify → Keys and secrets).
+  Автосборки на Netlify остановлены (Build status: Stopped), поэтому кредиты Netlify не тратятся.
+  Если поменяются поля админки (`public/admin/*`), их нужно один раз опубликовать на Netlify вручную
+  (Deploys → Trigger deploy) — это одна публикация из 20 бесплатных в месяц.
+
+Картинки и видео: GitHub Pages отдаёт файлы до 100 МБ, весь сайт — до 1 ГБ.
+
+**Свой домен:** в `astro.config.mjs` указать `site: 'https://ваш-домен'` и убрать `base`,
+затем подключить домен в репозитории: Settings → Pages → Custom domain.
 
 ## Широкие экраны
 
