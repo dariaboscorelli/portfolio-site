@@ -1,17 +1,35 @@
 slug: more
-# --- Плитка на главной ---
-title: "«Море»"
-tag: "УПАКОВКА"
+title: "Rise of legends "
+tag: КИБЕРСПОРТ И ТРАНСЛЯЦИИ
 category: branding
-summary: "Линейка упаковки рыбной продукции с графичной иллюстрацией"
+summary: "Оформление сценических экранов турнира Rise of Legends по Mobile
+  Legends: Bang Bang на основе готового Key Visual."
 order: 4
-cover: "/images/uploads/cover-more.webp"
+showOnHome: true
+cover: /images/uploads/cover-more.webp
+coverVideo: /images/uploads/desktop-2026.11.25-01.21.47.05.dvr-trim.mp4
 coverHeight: 453
+lead: "Оформление сценических экранов турнира Rise of Legends по Mobile Legends:
+  Bang Bang на основе готового Key Visual."
+client: BetBoom
+role: Дизайнер графики экранов
+tools: Figma, Photoshop
+heroVideo: /images/uploads/desktop-2026.11.25-01.21.47.05.dvr-trim.mp4
+sections:
+  - label: ЗАДАЧА
+    text: "На основе готового Key Visual нужно было оформить все экраны турнирной
+      сцены: главный экран, боковые экраны с игроками и LED-панели на столах
+      команд. Mobile Legends — мобильная игра со своими этапами матча: фаза
+      банов, пиков, сама игра. Для каждого этапа нужна была своя графика,
+      которая хорошо читается из зала."
+    width: ""
+  - label: РЕЗУЛЬТАТ
+    text: >-
+      Графика работала на сцене весь турнир, включая гранд-финал, и попала
 
-# --- Страница кейса (заполнить) ---
-lead: ""
-client: ""
-role: ""
-tools: ""
-# hero: /images/uploads/имя-файла.webp
-sections: []
+      в трансляцию. Сцена выглядела цельно: прослеживался KV турнира, а зрители в зале легко следили за ходом матча и составами команд.
+    media:
+      - type: image
+        src: /images/uploads/hud-в-игре-—-крупно2.png
+      - type: video
+        video: /images/uploads/hud-в-игре-—-крупно2.png
