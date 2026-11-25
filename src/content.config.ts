@@ -10,12 +10,13 @@ const optPath = z.preprocess(empty, z.string().optional());
 const optNumber = z.preprocess(empty, z.coerce.number().optional());
 
 // Картинка внутри кейса. Пропорции берутся из самого файла, поэтому их не нужно указывать.
-const picture = z.object({ src: optPath, alt: optText });
+// Вместо картинки можно загрузить видео (video): оно играет само, без звука, по кругу.
+const picture = z.object({ src: optPath, video: optPath, alt: optText });
 
 // Блоки, из которых собирается раздел кейса
 const mediaBlock = z.discriminatedUnion('type', [
-  // одна картинка на всю ширину
-  z.object({ type: z.literal('image'), src: optPath, alt: optText }),
+  // одна картинка или видео на всю ширину
+  z.object({ type: z.literal('image'), src: optPath, video: optPath, alt: optText }),
   // ряд картинок одинаковой высоты
   z.object({
     type: z.literal('row'),

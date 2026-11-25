@@ -83,23 +83,25 @@ collections:
             typeKey: type
             types:
               - name: image
-                label: 'Картинка на всю ширину'
-                summary: '{{fields.src}}'
+                label: 'Картинка или видео на всю ширину'
+                summary: '{{fields.video}} {{fields.src}}'
                 fields:
-                  - { name: src, label: 'Картинка', widget: image, choose_url: false }
-                  - { name: alt, label: 'Описание картинки (для поиска и незрячих)', widget: string, required: false }
+                  - { name: src, label: 'Картинка', widget: image, required: false, choose_url: false, hint: 'Если ниже есть видео, картинка видна, пока оно грузится.' }
+                  - { name: video, label: 'Видео вместо картинки (MP4)', widget: file, required: false, choose_url: false, hint: 'Играет само, без звука, по кругу. Пропорции берутся из ролика. MP4 (H.264), лучше до 15 МБ.' }
+                  - { name: alt, label: 'Описание (для поиска и незрячих)', widget: string, required: false }
               - name: row
-                label: 'Ряд картинок одной высоты'
+                label: 'Ряд картинок или видео одной высоты'
                 fields:
-                  - { name: gap, label: 'Отступ между картинками, px', widget: number, value_type: int, default: 16, required: false }
+                  - { name: gap, label: 'Отступ между элементами, px', widget: number, value_type: int, default: 16, required: false }
                   - name: images
-                    label: 'Картинки'
-                    label_singular: 'картинку'
+                    label: 'Элементы ряда'
+                    label_singular: 'элемент'
                     widget: list
-                    summary: '{{fields.src}}'
+                    summary: '{{fields.video}} {{fields.src}}'
                     fields:
-                      - { name: src, label: 'Картинка', widget: image, choose_url: false }
-                      - { name: alt, label: 'Описание картинки', widget: string, required: false }
+                      - { name: src, label: 'Картинка', widget: image, required: false, choose_url: false }
+                      - { name: video, label: 'Видео вместо картинки (MP4)', widget: file, required: false, choose_url: false }
+                      - { name: alt, label: 'Описание', widget: string, required: false }
               - name: caption
                 label: 'Тёмная плашка с подписью'
                 summary: '{{fields.text}}'

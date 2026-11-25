@@ -67,14 +67,14 @@ const passport = [
             )}
             {s.media.map((m) =>
               m.type === 'image' ? (
-                <CaseImage src={m.src} alt={m.alt} />
+                <CaseImage src={m.src} video={m.video} alt={m.alt} />
               ) : m.type === 'row' ? (
                 <div class="case-row" style={`gap: ${m.gap}px`}>
                   {m.images.map((img) => {
-                    const r = ratioOf(img.src) ?? 16 / 9;
+                    const r = (img.video && ratioOf(img.video)) || ratioOf(img.src) || 16 / 9;
                     return (
                       <div class="case-row__item" style={`flex: ${r} 1 0`}>
-                        <CaseImage src={img.src} alt={img.alt} />
+                        <CaseImage src={img.src} video={img.video} alt={img.alt} />
                       </div>
                     );
                   })}

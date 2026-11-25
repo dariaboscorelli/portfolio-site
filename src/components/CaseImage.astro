@@ -6,29 +6,26 @@ interface Props {
   alt?: string;
   /** видео вместо картинки: играет само, без звука, по кругу; картинка служит обложкой до загрузки */
   video?: string;
-  /** пропорция для серой заглушки, если картинки ещё нет */
+  /** пропорция для серой заглушки, если нет ни картинки, ни видео */
   fallbackRatio?: number;
+  /** первый экран страницы: грузить сразу */
   eager?: boolean;
 }
 const { src, alt = '', video, fallbackRatio = 16 / 9, eager = false } = Astro.props;
-const ratio = ratioOf(src) ?? fallbackRatio;
+// если есть видео — рамка по пропорциям видео, иначе по картинке
+const ratio = (video && ratioOf(video)) || ratioOf(src) || fallbackRatio;
 ---
 
 <figure class="case-image ph" style={`aspect-ratio: ${ratio}`}>
   {src && <img src={src} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
   {
-    video && (
-      <video
-        src={video}
-        poster={src}
-        autoplay
-        muted
-        loop
-        playsinline
-        preload={eager ? 'auto' : 'metadata'}
-        aria-label={alt || undefined}
-      />
-    )
+    video &&
+      (eager ? (
+        <video src={video} poster={src} autoplay muted loop playsinline preload="auto" aria-label={alt || undefined} />
+      ) : (
+        // видео ниже первого экрана начинает грузиться и играть, только когда до него долистали
+        <video src={video} poster={src} muted loop playsinline preload="none" data-inview aria-label={alt || undefined} />
+      ))
   }
 </figure>
 
@@ -47,3 +44,20 @@ const ratio = ratioOf(src) ?? fallbackRatio;
     object-fit: cover;
   }
 </style>
+
+<script>
+  const videos = document.querySelectorAll<HTMLVideoElement>('video[data-inview]');
+  if (videos.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          const v = e.target as HTMLVideoElement;
+          if (e.isIntersecting) v.play().catch(() => {});
+          else v.pause();
+        }
+      },
+      { rootMargin: '200px 0px' },
+    );
+    videos.forEach((v) => io.observe(v));
+  }
+</script>
