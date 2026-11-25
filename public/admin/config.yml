@@ -140,6 +140,7 @@ collections:
               - { name: eyebrow, label: 'Надпись сверху', widget: string }
               - { name: title, label: 'Заголовок', widget: string }
               - { name: description, label: 'Описание', widget: text }
+          - { name: grayscaleCovers, label: 'Чёрно-белые обложки на главной', widget: boolean, default: true, required: false, hint: 'Включено — обложки плиток чёрно-белые и становятся цветными при наведении. Выключено — обложки всегда цветные.' }
 
       - name: about
         label: Страница «Обо мне»

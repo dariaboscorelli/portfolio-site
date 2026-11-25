@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { u } from '../lib/url';
+import site from '../data/site.json';
 
 interface Props {
   entry: CollectionEntry<'cases'>;
@@ -9,9 +10,16 @@ const { entry } = Astro.props;
 const { title, tag, summary, cover, coverHeight, coverVideo, category, order } = entry.data;
 // если обложки-картинки нет, а видео есть — до наведения показываем первый кадр видео
 const frameAsCover = Boolean(coverVideo && !cover);
+// «Настройки сайта → Чёрно-белые обложки на главной». Если поля нет в файле — ЧБ включено.
+const grayscale = (site as { grayscaleCovers?: boolean }).grayscaleCovers !== false;
 ---
 
-<a class="tile" href={u(`/work/${entry.id}/`)} data-category={category} data-order={order}>
+<a
+  class:list={['tile', { 'tile--bw': grayscale }]}
+  href={u(`/work/${entry.id}/`)}
+  data-category={category}
+  data-order={order}
+>
   <div class="tile__cover ph" style={`aspect-ratio: 468 / ${coverHeight}`}>
     {cover && <img src={u(cover)} alt={title} loading="lazy" decoding="async" />}
     {
@@ -70,18 +78,19 @@ const frameAsCover = Boolean(coverVideo && !cover);
     visibility: visible;
   }
   /* обложка (или первый кадр видео) чёрно-белая, при наведении на плитку — цветная.
+     Включается в админке: «Настройки сайта → Чёрно-белые обложки на главной» (класс tile--bw).
      Только для устройств с мышью: на телефонах наведения нет, там обложки остаются цветными. */
   @media (hover: hover) {
-    .tile__cover img,
-    .tile__video {
+    .tile--bw .tile__cover img,
+    .tile--bw .tile__video {
       filter: grayscale(1);
       /* плавный переход в цвет и обратно; длительность — 0.4s */
       transition: filter 0.4s ease;
     }
-    .tile:hover .tile__cover img,
-    .tile:hover .tile__video,
-    .tile:focus-visible .tile__cover img,
-    .tile:focus-visible .tile__video {
+    .tile--bw:hover .tile__cover img,
+    .tile--bw:hover .tile__video,
+    .tile--bw:focus-visible .tile__cover img,
+    .tile--bw:focus-visible .tile__video {
       filter: none;
     }
   }
