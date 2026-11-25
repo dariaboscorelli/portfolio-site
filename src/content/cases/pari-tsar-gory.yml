@@ -1,17 +1,24 @@
-slug: pari-tsar-gory
-# --- Плитка на главной ---
-title: "PARI «Царь горы фрибетов»"
-tag: "ВЕБ И ПРОМО"
-category: special
-summary: "Промо-страница акции: десктоп, мобайл, состояния интерфейса"
+slug: winline-pro-league-s3
+title: WINLINE PRO LEAGUE S3
+tag: КИБЕРСПОРТ · ТРАНСЛЯЦИИ
+category: esports
+summary: "Рекламные макеты для музыкального сервиса Звук: креативы для
+  таргетированной и контекстной рекламы."
 order: 9
-# cover: /images/uploads/имя-файла.webp
+showOnHome: true
+coverVideo: /images/uploads/wpl_web.mp4
 coverHeight: 393
-
-# --- Страница кейса (заполнить) ---
-lead: ""
+lead: |-
+  Рекламные макеты для музыкального сервиса Звук: креативы
+  для таргетированной и контекстной рекламы.
 client: ""
 role: ""
 tools: ""
-# hero: /images/uploads/имя-файла.webp
-sections: []
+sections:
+  - label: ЗАДАЧА
+  - label: МОЯ РОЛЬ
+  - label: ПРИМЕНЕНИЕ
+    media:
+      - type: image
+        src: /images/uploads/hud-в-игре-—-крупно.png
+      - type: image
