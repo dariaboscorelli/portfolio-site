@@ -15,7 +15,8 @@ lead: "Оформление экранов на сцене турнира FISSUR
 client: Fissure
 role: Дизайнер графики экранов
 tools: Figma
-hero: /images/uploads/fpg-photo-2.webp
+hero: ""
+heroVideo: /images/uploads/fpg_cs2-original.mp4
 sections:
   - label: ЗАДАЧА
     text: "Оформить все экраны турнирной сцены: главный экран, боковые экраны и
