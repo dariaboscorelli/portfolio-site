@@ -19,7 +19,8 @@ const right = works.filter((_, i) => i % 2 === 1);
 
 const filters = [
   { id: 'all', title: 'Все работы', count: works.length },
-  ...CATEGORIES.map((c) => ({ ...c, count: works.filter((w) => w.data.category === c.id).length })),
+  // кейс с несколькими направлениями считается в каждом из них
+  ...CATEGORIES.map((c) => ({ ...c, count: works.filter((w) => w.data.category.includes(c.id)).length })),
 ];
 ---
 
@@ -164,7 +165,8 @@ const filters = [
   function apply(filter: string) {
     let n = 0;
     for (const tile of tiles) {
-      const show = filter === 'all' || tile.dataset.category === filter;
+      // в data-category направления кейса через пробел: «ads esports»
+      const show = filter === 'all' || (tile.dataset.category ?? '').split(' ').includes(filter);
       tile.hidden = !show;
       cols[show ? n++ % 2 : 0].appendChild(tile);
     }

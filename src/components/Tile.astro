@@ -17,7 +17,7 @@ const grayscale = (site as { grayscaleCovers?: boolean }).grayscaleCovers !== fa
 <a
   class:list={['tile', { 'tile--bw': grayscale }]}
   href={u(`/work/${entry.id}/`)}
-  data-category={category}
+  data-category={category.join(' ')}
   data-order={order}
 >
   {

@@ -40,9 +40,13 @@ collections:
       # --- плитка на главной ---
       - { name: title, label: 'Название', widget: string }
       - { name: tag, label: 'Красная подпись над названием', widget: string, required: false, hint: 'Например: КИБЕРСПОРТ · ТРАНСЛЯЦИИ' }
+      # несколько направлений: виджет categories (public/admin/preview.js) — это обычный выпадающий список
+      # с выбором нескольких вариантов, который правильно показывает и старые кейсы с одним направлением
       - name: category
-        label: 'Направление (для фильтра)'
-        widget: select
+        label: 'Направления (для фильтра)'
+        widget: categories
+        multiple: true
+        hint: 'Можно выбрать несколько — кейс появится в каждом из этих фильтров.'
         options:
           - { label: 'Киберспорт и трансляции', value: esports }
           - { label: 'Брендинг и упаковка', value: branding }

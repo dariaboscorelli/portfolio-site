@@ -48,7 +48,11 @@ const cases = defineCollection({
     // --- плитка на главной ---
     title: z.string(),
     tag: optText, // красная подпись над названием
-    category: z.enum(CATEGORY_IDS), // для фильтра
+    // направления для фильтра: одно (category: ads) или несколько (category: [ads, esports]) —
+    // кейс показывается в каждом из выбранных фильтров. Дальше в коде это всегда список.
+    category: z
+      .union([z.enum(CATEGORY_IDS), z.array(z.enum(CATEGORY_IDS)).min(1)])
+      .transform((v) => (Array.isArray(v) ? v : [v])),
     summary: optText, // строка под названием
     order: z.coerce.number(), // порядок на главной: 1, 2, 3… (нечётные — левая колонка, чётные — правая)
     cover: optPath,

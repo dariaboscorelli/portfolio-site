@@ -7,6 +7,20 @@
 
   CMS.registerPreviewStyle('/admin/preview.css');
 
+  // Поле «Направления (для фильтра)»: выпадающий список с выбором нескольких вариантов.
+  // Старые кейсы хранят одно направление строкой (category: ads) — обычный список с multiple
+  // показал бы их пустыми, поэтому строку передаём ему как список из одного значения.
+  var Select = CMS.getWidget('select');
+  if (Select && Select.control) {
+    var CategoriesControl = createClass({
+      render: function () {
+        var v = this.props.value;
+        return h(Select.control, Object.assign({}, this.props, { value: typeof v === 'string' && v ? [v] : v }));
+      },
+    });
+    CMS.registerWidget('categories', CategoriesControl, Select.preview);
+  }
+
   // ---------- помощники ----------
   function toJS(v) {
     return v && typeof v.toJS === 'function' ? v.toJS() : v;
