@@ -1,0 +1,31 @@
+slug: avulus-esports
+title: avulus esports
+tag: КИБЕРСПОРТ
+category: esports
+summary: "SMM-макеты для киберспортивной команды Avulus по Dota 2: анонсы
+  матчей, расписание, результаты и посты со спонсором."
+order: 15
+showOnHome: true
+coverHeight: 400
+client: AVULUS
+role: Дизайнер
+tools: Figma, Photoshop, Nana Banana
+sections:
+  - label: ЗАДАЧА
+    text: Разработать SMM-макеты для соцсетей команды Avulus на турнирах DreamLeague
+      и PGL Wallachia. Посты должны быстро выходить к каждому матчу, держать
+      единый узнаваемый стиль и встраивать спонсора FONBET.
+  - label: РЕЗУЛЬТАТ
+    text: "Макеты выходили в соцсетях Avulus на DreamLeague Season 24–26 и PGL
+      Wallachia Season 3. Шаблоны легко обновлять под каждый матч: меняются
+      соперник, время, формат и счёт. Тёмно-зелёный с красным и монохромные
+      3D-образы героев Dota 2 делают посты команды узнаваемыми в ленте."
+    media:
+      - type: image
+        src: /images/uploads/avulus_1.jpg
+      - type: image
+        src: /images/uploads/avulus_2.jpg
+      - type: image
+        src: /images/uploads/avulus_3.jpg
+      - type: image
+        src: /images/uploads/avulus_4.jpg
