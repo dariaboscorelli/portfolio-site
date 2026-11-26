@@ -6,6 +6,7 @@ summary: "SMM-макеты для киберспортивной команды 
   матчей, расписание, результаты и посты со спонсором."
 order: 15
 showOnHome: true
+cover: /images/uploads/avvv.jpg
 coverHeight: 400
 client: AVULUS
 role: Дизайнер
