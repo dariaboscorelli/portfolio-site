@@ -1,0 +1,35 @@
+slug: event-group
+title: EVENT GROUP
+tag: ПРЕЗЕНТАЦИЯ
+category: special
+summary: Коммерческое предложение для SPB Event Group - компании, которая
+  обеспечивает технику и безопасность на крупных городских мероприятиях.
+order: 9
+showOnHome: true
+coverVideo: /images/uploads/even4ttt_web.mp4
+coverHeight: 400
+lead: Коммерческое предложение для SPB Event Group - компании, которая
+  обеспечивает технику и безопасность на крупных городских мероприятиях.
+client: EventGroup
+role: Дизайнер презентации
+tools: Figma, Photoshop
+heroVideo: /images/uploads/even4ttt_web.mp4
+sections:
+  - label: ЗАДАЧА
+    text: SPB Event Group работает с крупнейшими площадками и событиями России.
+      Нужно было собрать коммерческое предложение, которое за пару минут
+      объясняет, чем занимается компания, показывает её масштаб, опыт и помогает
+      клиенту выбрать оборудование.
+  - label: РЕЗУЛЬТАТ
+    text: "Компания получила презентацию, которую можно сразу отправлять новым
+      клиентам: за пару минут она объясняет, кто такая SPB Event Group,
+      показывает масштаб и подтверждает опыт работы."
+    media:
+      - type: image
+        src: /images/uploads/event1.jpg
+      - type: image
+        src: /images/uploads/event2.jpg
+      - type: image
+        src: /images/uploads/event3.jpg
+      - type: image
+        src: /images/uploads/event4.jpg
