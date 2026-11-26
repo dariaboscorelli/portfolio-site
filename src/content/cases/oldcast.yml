@@ -2,6 +2,42 @@ slug: oldcast
 title: OLDCAST (WINLINE x DREAD)
 tag: КИБЕРСПОРТ · ПЕЧАТНАЯ ПРОДУКЦИЯ
 category: esports
+summary: "Новогодняя студия в стиле советской квартиры для трансляций Old Cast
+  при поддержке Winline: 3D-макет студии и вся печатная продукция для съёмок."
 order: 17
 showOnHome: true
 coverHeight: 400
+lead: "Новогодняя студия в стиле советской квартиры для трансляций Old Cast при
+  поддержке Winline: 3D-макет студии и вся печатная продукция для съёмок."
+client: Winline
+role: Дизайнер
+tools: Figma, Photoshop, Illustrator, Blender
+hero: /images/uploads/image-6735904452.jpg
+sections:
+  - label: ЗАДАЧА
+    text: Оформить студию Old Cast для новогодних трансляций по Dota 2 в стиле
+      советской квартиры. Спонсор Winline должен быть частью интерьера, а не
+      отдельной рекламой.
+  - label: РЕЗУЛЬТАТ
+    text: "По 3D-макету собрали настоящую студию, и в кадре она совпадает с
+      визуализацией. Печать живёт прямо в интерьере: газета лежит на столе,
+      шампанское «Куала-Лумпурского шампанского завода Old Cast» стоит рядом,
+      карточки разложены на игровом столе. Winline встроен в обстановку: его
+      логотип появляется на экране старого телевизора, на газете и на этикетке."
+    media:
+      - type: image
+        src: /images/uploads/oldcast_1.jpg
+      - type: image
+        src: /images/uploads/oldcast_2.jpg
+      - type: image
+        src: /images/uploads/oldcast_3.jpg
+      - type: image
+        src: /images/uploads/oldcast_4.jpg
+      - type: image
+        src: /images/uploads/oldcast_5.jpg
+      - type: image
+        src: /images/uploads/oldcast_6.jpg
+      - type: image
+        src: /images/uploads/oldcast_7.jpg
+      - type: image
+        src: /images/uploads/oldcast_8.jpg
