@@ -28,3 +28,16 @@ sections:
     text: Ролик и баннеры сделаны для прямых трансляций. В ролике оффер раскрывается
       по шагам. Так зритель успевает прочитать каждый элемент, а реклама
       выглядит частью контента.
+    media:
+      - type: image
+        src: /images/uploads/111111.png
+      - type: image
+        src: /images/uploads/222.png
+      - type: image
+        src: /images/uploads/3333.png
+      - type: image
+        src: /images/uploads/444444.png
+      - type: image
+        src: /images/uploads/5555.png
+      - type: image
+        video: /images/uploads/5555.png
