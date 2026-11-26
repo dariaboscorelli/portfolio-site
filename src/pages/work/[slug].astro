@@ -70,16 +70,21 @@ const passport = [
               m.type === 'image' || m.type === 'video' ? (
                 <CaseImage src={m.src} video={m.video} alt={m.alt} />
               ) : m.type === 'row' ? (
-                <div class="case-row" style={`gap: ${m.gap}px`}>
-                  {m.images.map((img) => {
-                    const r = (img.video && ratioOf(img.video)) || ratioOf(img.src) || 16 / 9;
-                    return (
-                      <div class="case-row__item" style={`flex: ${r} 1 0`}>
-                        <CaseImage src={img.src} video={img.video} alt={img.alt} />
-                      </div>
-                    );
-                  })}
-                </div>
+                // в ряду выводим только элементы с картинкой или видео; пустой ряд не выводим совсем
+                m.images.some((img) => img.src || img.video) && (
+                  <div class="case-row" style={`gap: ${m.gap}px`}>
+                    {m.images
+                      .filter((img) => img.src || img.video)
+                      .map((img) => {
+                        const r = (img.video && ratioOf(img.video)) || ratioOf(img.src) || 16 / 9;
+                        return (
+                          <div class="case-row__item" style={`flex: ${r} 1 0`}>
+                            <CaseImage src={img.src} video={img.video} alt={img.alt} />
+                          </div>
+                        );
+                      })}
+                  </div>
+                )
               ) : (
                 <p class="case-caption">{m.text}</p>
               ),

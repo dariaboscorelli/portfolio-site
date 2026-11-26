@@ -20,25 +20,28 @@ const grayscale = (site as { grayscaleCovers?: boolean }).grayscaleCovers !== fa
   data-category={category}
   data-order={order}
 >
-  <div class="tile__cover ph" style={`aspect-ratio: 468 / ${coverHeight}`}>
-    {cover && <img src={u(cover)} alt={title} loading="lazy" decoding="async" />}
-    {
-      coverVideo && (
-        // ролик играет, пока курсор на плитке. Если есть обложка-картинка — ролик грузится только
-        // при первом наведении (preload="none"). Если обложки нет — сразу подгружается начало ролика,
-        // и его первый кадр стоит вместо обложки (#t=0.001 нужен Safari, чтобы он показал кадр).
-        <video
-          class:list={['tile__video', { 'is-frame': frameAsCover }]}
-          src={frameAsCover ? `${u(coverVideo)}#t=0.001` : u(coverVideo)}
-          muted
-          loop
-          playsinline
-          preload={frameAsCover ? 'metadata' : 'none'}
-          aria-hidden="true"
-        />
-      )
-    }
-  </div>
+  {
+    // если не загружены ни обложка, ни видео — блока обложки нет совсем, плитка из одного текста
+    (cover || coverVideo) && (
+      <div class="tile__cover ph" style={`aspect-ratio: 468 / ${coverHeight}`}>
+        {cover && <img src={u(cover)} alt={title} loading="lazy" decoding="async" />}
+        {coverVideo && (
+          // ролик играет, пока курсор на плитке. Если есть обложка-картинка — ролик грузится только
+          // при первом наведении (preload="none"). Если обложки нет — сразу подгружается начало ролика,
+          // и его первый кадр стоит вместо обложки (#t=0.001 нужен Safari, чтобы он показал кадр).
+          <video
+            class:list={['tile__video', { 'is-frame': frameAsCover }]}
+            src={frameAsCover ? `${u(coverVideo)}#t=0.001` : u(coverVideo)}
+            muted
+            loop
+            playsinline
+            preload={frameAsCover ? 'metadata' : 'none'}
+            aria-hidden="true"
+          />
+        )}
+      </div>
+    )
+  }
   <div class="tile__info">
     <p class="tile__tag">{tag}</p>
     <p class="tile__title">{title}</p>

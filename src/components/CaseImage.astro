@@ -7,7 +7,7 @@ interface Props {
   alt?: string;
   /** видео вместо картинки: играет само, без звука, по кругу; картинка служит обложкой до загрузки */
   video?: string;
-  /** пропорция для серой заглушки, если нет ни картинки, ни видео */
+  /** пропорция рамки, пока неизвестны размеры файла */
   fallbackRatio?: number;
   /** первый экран страницы: грузить сразу */
   eager?: boolean;
@@ -17,18 +17,21 @@ const { src, alt = '', video, fallbackRatio = 16 / 9, eager = false } = Astro.pr
 const ratio = (video && ratioOf(video)) || ratioOf(src) || fallbackRatio;
 ---
 
-<figure class="case-image ph" style={`aspect-ratio: ${ratio}`}>
-  {src && <img src={u(src)} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
-  {
-    video &&
-      (eager ? (
-        <video src={u(video)} poster={u(src)} autoplay muted loop playsinline preload="auto" aria-label={alt || undefined} />
-      ) : (
-        // видео ниже первого экрана начинает грузиться и играть, только когда до него долистали
-        <video src={u(video)} poster={u(src)} muted loop playsinline preload="none" data-inview aria-label={alt || undefined} />
-      ))
-  }
-</figure>
+{
+  // если не загружены ни картинка, ни видео — ничего не выводим (никакого серого прямоугольника)
+  (src || video) && (
+    <figure class="case-image ph" style={`aspect-ratio: ${ratio}`}>
+      {src && <img src={u(src)} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />}
+      {video &&
+        (eager ? (
+          <video src={u(video)} poster={u(src)} autoplay muted loop playsinline preload="auto" aria-label={alt || undefined} />
+        ) : (
+          // видео ниже первого экрана начинает грузиться и играть, только когда до него долистали
+          <video src={u(video)} poster={u(src)} muted loop playsinline preload="none" data-inview aria-label={alt || undefined} />
+        ))}
+    </figure>
+  )
+}
 
 <style>
   .case-image {

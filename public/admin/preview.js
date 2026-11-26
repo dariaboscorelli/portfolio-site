@@ -69,6 +69,8 @@
     },
     render: function () {
       var p = this.props;
+      // как на сайте: нет ни картинки, ни видео — ничего не показываем
+      if (!p.src && !p.video) return null;
       return h(
         'figure',
         { className: 'case-image ph', style: { aspectRatio: String(this.state.ratio || p.fallback || 16 / 9) } },
@@ -102,6 +104,7 @@
         { className: 'case-row', style: { gap: gap + 'px' } },
         items.map(function (it, i) {
           it = it || {};
+          if (!it.src && !it.video) return null;
           return h(
             'div',
             { key: i, className: 'case-row__item', style: { flex: (self.state.ratios[i] || 16 / 9) + ' 1 0' } },
@@ -136,15 +139,18 @@
           onMouseEnter: function () { self.setState({ hover: true }); },
           onMouseLeave: function () { self.setState({ hover: false }); },
         },
-        h(
-          'div',
-          { className: 'tile__cover ph', style: { aspectRatio: '468 / ' + (d.coverHeight || 400) } },
-          cover ? h('img', { src: cover }) : null,
-          video && this.state.hover
-            ? h('video', { src: video, autoPlay: true, muted: true, loop: true, playsInline: true, onLoadedMetadata: startVideo })
-            : null,
-          video ? h('span', { className: 'pv-badge' }, '▶ видео при наведении — наведите курсор') : null,
-        ),
+        // как на сайте: нет ни обложки, ни видео — блока обложки нет, плитка из одного текста
+        cover || video
+          ? h(
+              'div',
+              { className: 'tile__cover ph', style: { aspectRatio: '468 / ' + (d.coverHeight || 400) } },
+              cover ? h('img', { src: cover }) : null,
+              video && this.state.hover
+                ? h('video', { src: video, autoPlay: true, muted: true, loop: true, playsInline: true, onLoadedMetadata: startVideo })
+                : null,
+              video ? h('span', { className: 'pv-badge' }, '▶ видео при наведении — наведите курсор') : null,
+            )
+          : null,
         h(
           'div',
           { className: 'tile__info' },
