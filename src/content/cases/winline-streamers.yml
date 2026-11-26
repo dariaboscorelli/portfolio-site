@@ -41,3 +41,5 @@ sections:
         src: /images/uploads/ws_4.jpg
       - type: image
         video: /images/uploads/5555.png
+      - type: video
+        video: /images/uploads/111111.png
