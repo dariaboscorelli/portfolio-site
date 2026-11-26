@@ -30,14 +30,14 @@ sections:
       выглядит частью контента.
     media:
       - type: image
-        src: /images/uploads/111111.png
+        src: /images/uploads/ws_1.jpg
       - type: image
         src: /images/uploads/222.png
       - type: image
-        src: /images/uploads/3333.png
+        src: /images/uploads/ws_2.jpg
       - type: image
-        src: /images/uploads/444444.png
+        src: /images/uploads/ws_3.jpg
       - type: image
-        src: /images/uploads/5555.png
+        src: /images/uploads/ws_4.jpg
       - type: image
         video: /images/uploads/5555.png
