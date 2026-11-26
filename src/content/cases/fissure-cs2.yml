@@ -1,0 +1,57 @@
+slug: fissure-cs2
+title: FISSURE PLAYGROUND COUNTER STRIKE 2
+tag: КИБЕРСПОРТ · ТРАНСЛЯЦИИ
+category: esports
+summary: "Оформление экранов на сцене турнира FISSURE Playground по
+  Counter-Strike 2: статичная графика для LED-экранов и раскадровки для
+  моушен-дизайнера."
+order: 1
+showOnHome: true
+cover: /images/uploads/обложка.png
+coverVideo: /images/uploads/fpg_cs2-original.mp4
+coverHeight: 493
+lead: "Оформление экранов на сцене турнира FISSURE Playground по Counter-Strike
+  2: статичная графика для LED-экранов и раскадровки для моушен-дизайнера."
+client: Fissure
+role: Дизайнер графики экранов
+tools: Figma
+hero: ""
+heroVideo: /images/uploads/fpg_cs2-original.mp4
+sections:
+  - label: ЗАДАЧА
+    text: "Оформить все экраны турнирной сцены: главный экран, боковые экраны и
+      LED-панели на столах игроков. Графика должна была сделана в стиле турнира,
+      хорошо читаться из зала. Счёт, составы и статистика игроков меняются по
+      ходу матча, поэтому макеты нужно было собрать так, чтобы их было легко
+      запрограммировать и анимировать."
+    width: 864
+    media: []
+  - label: МОЯ РОЛЬ
+    text: Отвечала за всю статичную графику для экранов. Для каждого экрана делала
+      раскадровку и передавала её моушен-дизайнеру, который анимировал графику
+      по моим макетам, а также собирала экраны для всевозможных сценариев,
+      которые нужно было заготовить заранее для технического специалиста.
+    width: 886
+  - label: РЕЗУЛЬТАТ
+    text: "Графика вышла на экраны арены во время турнира: она была яркой,
+      эффектной, а главное - функциональной: можно было отслеживать всю важную
+      статистику во время игры в едином стиле Fissure Playground."
+    width: 739
+    media:
+      - type: video
+        video: /images/uploads/боковые-экраны-во-время-игры_2_web.mp4
+      - type: row
+        gap: 16
+        images:
+          - video: /images/uploads/полоса_загрузки-trim_web.mp4
+            src: ""
+          - src: /images/uploads/fpg-grid-2.webp
+      - type: image
+        src: /images/uploads/fpg-characters.webp
+      - type: image
+        src: /images/uploads/fpg-main-screen.webp
+      - type: row
+        gap: 16
+        images:
+          - video: /images/uploads/cover-winline.webp
+          - video: /images/uploads/fpg-photo-2.webp
