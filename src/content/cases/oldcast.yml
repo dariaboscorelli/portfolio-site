@@ -6,13 +6,14 @@ summary: "Новогодняя студия в стиле советской к�
   при поддержке Winline: 3D-макет студии и вся печатная продукция для съёмок."
 order: 17
 showOnHome: true
+cover: /images/uploads/image-6735904452.jpg
 coverHeight: 400
 lead: "Новогодняя студия в стиле советской квартиры для трансляций Old Cast при
   поддержке Winline: 3D-макет студии и вся печатная продукция для съёмок."
 client: Winline
 role: Дизайнер
 tools: Figma, Photoshop, Illustrator, Blender
-hero: /images/uploads/image-6735904452.jpg
+hero: ""
 sections:
   - label: ЗАДАЧА
     text: Оформить студию Old Cast для новогодних трансляций по Dota 2 в стиле
