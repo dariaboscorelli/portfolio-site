@@ -2,23 +2,46 @@ slug: winline-pro-league-s3
 title: WINLINE PRO LEAGUE S3
 tag: КИБЕРСПОРТ · ТРАНСЛЯЦИИ
 category: esports
-summary: "Рекламные макеты для музыкального сервиса Звук: креативы для
-  таргетированной и контекстной рекламы."
-order: 9
+summary: "Графика для третьего сезона турнира Winline Pro League по
+  Counter-Strike 2: HUD трансляции, эфирная графика и SMM-пакет."
+order: 7
 showOnHome: true
 coverVideo: /images/uploads/wpl_web.mp4
 coverHeight: 393
-lead: |-
-  Рекламные макеты для музыкального сервиса Звук: креативы
-  для таргетированной и контекстной рекламы.
-client: ""
-role: ""
-tools: ""
+lead: "Графика для третьего сезона турнира Winline Pro League по Counter-Strike
+  2: HUD трансляции, эфирная графика и SMM-пакет."
+client: Winline
+role: Дизайнер
+tools: Figma, Photoshop, Nana Banana
+heroVideo: /images/uploads/about-photo.webp
 sections:
   - label: ЗАДАЧА
+    text: "Создать визуальный стиль третьего сезона Winline Pro League и на его
+      основе собрать всю графику турнира: HUD и графику для трансляций и
+      SMM-пакет для соцсетей."
+    width: 0
   - label: МОЯ РОЛЬ
-  - label: ПРИМЕНЕНИЕ
+    text: "Разработала HUD трансляции - интерфейс поверх игры со счётом, картой,
+      составами и статистикой игроков. Сделала графику для эфира и SMM-пакет:
+      обложки, анонсы матчей, рейтинги игроков и посты с итогами турнира."
+  - label: РЕЗУЛЬТАТ
     media:
       - type: image
-        src: /images/uploads/hud-в-игре-—-крупно.png
+        src: /images/uploads/wpl_1-5-.png
       - type: image
+        src: /images/uploads/wpl_1-6-.png
+      - type: image
+        src: /images/uploads/wpl_1-7-.png
+      - type: image
+        src: /images/uploads/wpl_1-8-.png
+      - type: image
+        src: /images/uploads/wpl_1-1-.png
+      - type: image
+        src: /images/uploads/wpl_1-2-.png
+      - type: image
+        src: /images/uploads/wpl_1-3-.png
+      - type: image
+        src: /images/uploads/wpl_1-4-.png
+    text: "HUD и эфирная графика шли на трансляциях матчей, а SMM-пакет - в соцсетях
+      турнира. Все шаблоны в одном стиле: фиолетовый цвет, оранжевый акцент
+      Winline и 3D-оружие из игры."
