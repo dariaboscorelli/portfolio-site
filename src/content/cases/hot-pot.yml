@@ -20,21 +20,21 @@ sections:
       должно было работать в одном стиле, материалов было много: у каждого свои
       размеры и технические требования: от городских афиш до полиграфии на
       площадке и экранов на сцене."
-    width: 900
+    width: ""
   - label: РЕЗУЛЬТАТ
     text: "Адаптирован фирменный стиль фестиваля под рекламные носители: афиши,
       наружную рекламу, баннеры для соцсетей и сайтов продажи билетов.
       Подготовлена печатная продукция для площадки с учётом требований
       типографий."
-    width: 895
+    width: ""
     media:
       - type: image
-        src: /images/uploads/hud-в-игре-—-крупно.png
+        src: /images/uploads/dush_1.png
       - type: image
         src: /images/uploads/frame-8.png
       - type: image
         src: /images/uploads/hud-в-игре-—-крупно-1.png
       - type: image
-        src: /images/uploads/frame-7.png
+        src: /images/uploads/frame-776756.png
       - type: image
         src: /images/uploads/hud-в-игре-—-крупно-2.png
