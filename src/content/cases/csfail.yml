@@ -1,0 +1,35 @@
+slug: csfail
+title: CSFAIL
+tag: КИБЕРСПОРТ · SMM
+category: esports
+summary: "Новый SMM-стиль и серия постов для CSFAIL: анонсы обновлений, ивенты,
+  розыгрыши и бонусы."
+order: 19
+showOnHome: true
+cover: /images/uploads/cs_fail_3.jpg
+coverHeight: 400
+lead: "Новый SMM-стиль и серия постов для CSFAIL: анонсы обновлений, ивенты,
+  розыгрыши и бонусы."
+client: CSFAIL
+role: Дизайнер
+tools: Figma, Photoshop, Nana Banana, Blender
+hero: /images/uploads/csfail_2.jpg
+sections:
+  - label: ЗАДАЧА
+    text: Обновить визуальный стиль соцсетей CSFAIL. Посты должны стать ярче и
+      заметнее в ленте, а сам стиль должен позволять быстро выпускать анонсы,
+      ивенты и акции.
+  - label: РЕЗУЛЬТАТ
+    text: "Посты сделаны под каждое событие: обновления платформы, киберспортивные
+      турниры и чемпионат мира по футболу. Стиль легко подстраивается под тему,
+      от киберспорта до футбола, а посты остаются узнаваемыми: тот же логотип,
+      та же типографика и одинаковая подача оффера."
+    media:
+      - type: image
+        src: /images/uploads/csfail_1111.jpg
+      - type: image
+        src: /images/uploads/csfail_11112.jpg
+      - type: image
+        src: /images/uploads/csfail_11113.jpg
+      - type: image
+        src: /images/uploads/csfail_11114.jpg
